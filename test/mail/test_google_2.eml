@@ -1,0 +1,191 @@
+Delivered-To: exabugs@gmail.com
+Received: by 10.52.3.101 with SMTP id b5csp48070vdb;
+        Sat, 5 Apr 2014 18:18:36 -0700 (PDT)
+Return-Path: <3a6tAUwkJB2QUVCMTCPIGIOCKN.EQOGZCDWIUIOCKN.EQO@calendar-server.bounces.google.com>
+Received-SPF: pass (google.com: domain of 3a6tAUwkJB2QUVCMTCPIGIOCKN.EQOGZCDWIUIOCKN.EQO@calendar-server.bounces.google.com designates 10.68.230.193 as permitted sender) client-ip=10.68.230.193
+Authentication-Results: mr.google.com;
+       spf=pass (google.com: domain of 3a6tAUwkJB2QUVCMTCPIGIOCKN.EQOGZCDWIUIOCKN.EQO@calendar-server.bounces.google.com designates 10.68.230.193 as permitted sender) smtp.mail=3a6tAUwkJB2QUVCMTCPIGIOCKN.EQOGZCDWIUIOCKN.EQO@calendar-server.bounces.google.com;
+       dkim=pass header.i=@gmail.com
+X-Received: from mr.google.com ([10.68.230.193])
+        by 10.68.230.193 with SMTP id ta1mr17738066pbc.6.1396747116298 (num_hops = 1);
+        Sat, 05 Apr 2014 18:18:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20120113;
+        h=mime-version:reply-to:sender:auto-submitted:message-id:date:subject
+         :from:to:content-type;
+        bh=IQNMsZkGBjDy3/g0fA0Dv7LlMLLBngg8D4hBnr6XI3U=;
+        b=DgTiTY9K44rEI8Vch8cCtZu6FhrXW2BV2rsW7RBivFiKXJN/5WXNYgAN4O94h70yhp
+         yjJeubXpZA6YR+U6VivBIFGTK/KyWhUx3By7MF/eqemwstNjyUtNENPJfTIfJHHL2F8D
+         SK5gHMxb/So3yVfPzxGbrg79+vJEuB9BiIEzOBqnLbthPlRsYT9U7ZqEuYXzGzNTZxvZ
+         aDXRi2eOgZOFSWUGim0UmrqUAFEtKRaFttcgapyJT+PEwnqfAPzfjNs3VWcVBj7iOAsp
+         oh7h7juCLfY/0UUFjOj+Rj/eFvW3JRUfZHmyAWHs75CKhnJmDdITi3m4EdJ2wn8UsaAU
+         GheA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20120113;
+        h=mime-version:reply-to:sender:auto-submitted:message-id:date:subject
+         :from:to:content-type;
+        bh=IQNMsZkGBjDy3/g0fA0Dv7LlMLLBngg8D4hBnr6XI3U=;
+        b=h7gxPWomhdBxsGemg1bLBUMXpLVlqVvgVUAVKjftbvKfbEaD7pDwuZmcBA8kXtzITq
+         iKTQjSZFExXwvHTm3T7PAbabuh3sqnslVTfnKqexoEqeTphKt6KKdy2BCYqyu7XhgUfa
+         QxW59fXip2JUVMUqA5RjqfI9zp/v/z5KaRhg+C+mz2Zi6H7LqcFB0OwnVd5mNYDlJ2YE
+         csAJluVvokihUwP6rxzjhwQ3hCUOE998S7VjyCoTdL17eDZkPv5CuZfZ1LaHSfPjdCb0
+         nBoV+J/pNp2iACb+aJF891Zl/BMIiQixGccx2uoVlIHtB39lTPXeQWEFCZ/wc1n8R4Mk
+         s7ow==
+MIME-Version: 1.0
+X-Received: by 10.68.230.193 with SMTP id ta1mr12129497pbc.6.1396747115947;
+ Sat, 05 Apr 2014 18:18:35 -0700 (PDT)
+Reply-To: =?ISO-2022-JP?B?GyRCXS8wZkwvO1IbKEI=?= <stakrange@gmail.com>
+Sender: =?ISO-2022-JP?B?R29vZ2xlIBskQiUrJWwlcyVAITwbKEI=?= <calendar-notification@google.com>
+Auto-Submitted: auto-generated
+Message-ID: <047d7b339d5bafeec604f655874d@google.com>
+Date: Sun, 06 Apr 2014 01:18:35 +0000
+Subject: =?ISO-2022-JP?B?GyRCPzckNyQkTT1EahsoQjogGyRCOWI5O0BiTEAycRsoQiAtIDIwMTQvMDQvMjYgKBskQkVaGyhCKSA=?=
+	=?ISO-2022-JP?B?MDA6MDAgGyRCIUEbKEIgMDE6MDAgKBskQjJIQjIbKEIp?=
+From: =?ISO-2022-JP?B?GyRCXS8wZkwvO1IbKEI=?= <stakrange@gmail.com>
+To: "exabugs@gmail.com" <exabugs@gmail.com>
+Content-Type: multipart/mixed; boundary=047d7b339d5bafeeb004f655874c
+
+--047d7b339d5bafeeb004f655874c
+Content-Type: multipart/alternative; boundary=047d7b339d5bafeeac04f655874a
+
+--047d7b339d5bafeeac04f655874a
+Content-Type: text/plain; charset=ISO-2022-JP; format=flowed; delsp=yes
+Content-Transfer-Encoding: 7bit
+
+次の予定にご招待します。
+
+タイトル: 高校説明会
+日時: 2014/04/26 (土) 00:00 〜 01:00 東京
+カレンダー: 家族
+参加者:
+     * 櫻井妙子- 作成者
+
+予定の詳細:  
+https://www.google.com/calendar/event?action=VIEW&eid=dGh2amhndnQwNTVjOXNlNXF0YjVydTAzc2sgZnFlNml2aG03dTI2NjM5cTllNHNiOGRxMHNAZw
+
+Google カレンダーからの招待状: https://www.google.com/calendar/
+
+「家族」カレンダーの新しい予定の通知の受信が設定されているため、本メールを  
+exabugs@gmail.com にお送りしています。
+
+通知を受け取らないようにするには、https://www.google.com/calendar/ にログイ 
+ンし、カレンダーの通知設定を変更してください。
+
+--047d7b339d5bafeeac04f655874a
+Content-Type: text/html; charset=ISO-2022-JP
+Content-Transfer-Encoding: base64
+
+PGRpdiBzdHlsZT0iIj48dGFibGUgY2VsbHNwYWNpbmc9IjAiIGNlbGxwYWRkaW5nPSI4IiBib3Jk
+ZXI9IjAiIHN1bW1hcnk9IiIgc3R5bGU9IndpZHRoOjEwMCU7Zm9udC1mYW1pbHk6QXJpYWwsU2Fu
+cy1zZXJpZjtib3JkZXI6MXB4IFNvbGlkICNjY2M7Ym9yZGVyLXdpZHRoOjFweCAycHggMnB4IDFw
+eDtiYWNrZ3JvdW5kLWNvbG9yOiNmZmY7IiBpdGVtc2NvcGUgaXRlbXR5cGU9Imh0dHA6Ly9zY2hl
+bWEub3JnL0V2ZW50Ij48dHI+PHRkPjxtZXRhIGl0ZW1wcm9wPSJldmVudFN0YXR1cyIgY29udGVu
+dD0iaHR0cDovL3NjaGVtYS5vcmcvRXZlbnRTY2hlZHVsZWQiLz48ZGl2IHN0eWxlPSJwYWRkaW5n
+OjJweCI+PHNwYW4gaXRlbXByb3A9InB1Ymxpc2hlciIgaXRlbXNjb3BlIGl0ZW10eXBlPSJodHRw
+Oi8vc2NoZW1hLm9yZy9Pcmdhbml6YXRpb24iPjxtZXRhIGl0ZW1wcm9wPSJuYW1lIiBjb250ZW50
+PSJHb29nbGUgQ2FsZW5kYXIiLz48L3NwYW4+PG1ldGEgaXRlbXByb3A9ImV2ZW50SWQvZ29vZ2xl
+Q2FsZW5kYXIiIGNvbnRlbnQ9InRodmpoZ3Z0MDU1YzlzZTVxdGI1cnUwM3NrIi8+PGRpdiBzdHls
+ZT0iZmxvYXQ6cmlnaHQ7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LXNpemU6MTNweCI+IDxhIGhyZWY9
+Imh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vY2FsZW5kYXIvZXZlbnQ/YWN0aW9uPVZJRVcmYW1wO2Vp
+ZD1kR2gyYW1obmRuUXdOVFZqT1hObE5YRjBZalZ5ZFRBemMyc2dabkZsTm1sMmFHMDNkVEkyTmpN
+NWNUbGxOSE5pT0dSeE1ITkFadyIgc3R5bGU9ImNvbG9yOiMyMGM7d2hpdGUtc3BhY2U6bm93cmFw
+IiBpdGVtcHJvcD0idXJsIj4bJEI+XDpZGyhCICZyYXF1bzs8L2E+PGJyPjwvZGl2PjxoMyBzdHls
+ZT0icGFkZGluZzowIDAgNnB4IDA7bWFyZ2luOjA7Zm9udC1mYW1pbHk6QXJpYWwsU2Fucy1zZXJp
+Zjtmb250LXNpemU6MTZweDtmb250LXdlaWdodDpib2xkO2NvbG9yOiMyMjIiPjxzcGFuIGl0ZW1w
+cm9wPSJuYW1lIj4bJEI5Yjk7QGJMQDJxGyhCPC9zcGFuPjwvaDM+PHRhYmxlIGNlbGxwYWRkaW5n
+PSIwIiBjZWxsc3BhY2luZz0iMCIgYm9yZGVyPSIwIiBzdW1tYXJ5PSIbJEJNPURqJE4+XDpZGyhC
+Ij48dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjAgMWVtIDEwcHggMDtmb250LWZhbWlseTpBcmlhbCxT
+YW5zLXNlcmlmO2ZvbnQtc2l6ZToxM3B4O2NvbG9yOiM4ODg7d2hpdGUtc3BhY2U6bm93cmFwIiB2
+YWxpZ249InRvcCI+PGRpdj48aSBzdHlsZT0iZm9udC1zdHlsZTpub3JtYWwiPhskQkZ8O34bKEI8
+L2k+PC9kaXY+PC90ZD48dGQgc3R5bGU9InBhZGRpbmctYm90dG9tOjEwcHg7Zm9udC1mYW1pbHk6
+QXJpYWwsU2Fucy1zZXJpZjtmb250LXNpemU6MTNweDtjb2xvcjojMjIyIiB2YWxpZ249InRvcCI+
+PHRpbWUgaXRlbXByb3A9InN0YXJ0RGF0ZSIgZGF0ZXRpbWU9IjIwMTQwNDI1VDE1MDAwMFoiPjwv
+dGltZT48dGltZSBpdGVtcHJvcD0iZW5kRGF0ZSIgZGF0ZXRpbWU9IjIwMTQwNDI1VDE2MDAwMFoi
+PjwvdGltZT4yMDE0LzA0LzI2ICgbJEJFWhsoQikgMDA6MDAgGyRCIUEbKEIgMDE6MDAgPHNwYW4g
+c3R5bGU9ImNvbG9yOiM4ODgiPhskQkVsNX4bKEI8L3NwYW4+PC90ZD48L3RyPjx0cj48dGQgc3R5
+bGU9InBhZGRpbmc6MCAxZW0gMTBweCAwO2ZvbnQtZmFtaWx5OkFyaWFsLFNhbnMtc2VyaWY7Zm9u
+dC1zaXplOjEzcHg7Y29sb3I6Izg4ODt3aGl0ZS1zcGFjZTpub3dyYXAiIHZhbGlnbj0idG9wIj48
+ZGl2PjxpIHN0eWxlPSJmb250LXN0eWxlOm5vcm1hbCI+GyRCJSslbCVzJUAhPBsoQjwvaT48L2Rp
+dj48L3RkPjx0ZCBzdHlsZT0icGFkZGluZy1ib3R0b206MTBweDtmb250LWZhbWlseTpBcmlhbCxT
+YW5zLXNlcmlmO2ZvbnQtc2l6ZToxM3B4O2NvbG9yOiMyMjIiIHZhbGlnbj0idG9wIj4bJEIySEIy
+GyhCPC90ZD48L3RyPjx0cj48dGQgc3R5bGU9InBhZGRpbmc6MCAxZW0gMTBweCAwO2ZvbnQtZmFt
+aWx5OkFyaWFsLFNhbnMtc2VyaWY7Zm9udC1zaXplOjEzcHg7Y29sb3I6Izg4ODt3aGl0ZS1zcGFj
+ZTpub3dyYXAiIHZhbGlnbj0idG9wIj48ZGl2PjxpIHN0eWxlPSJmb250LXN0eWxlOm5vcm1hbCI+
+GyRCOzIyQzxUGyhCPC9pPjwvZGl2PjwvdGQ+PHRkIHN0eWxlPSJwYWRkaW5nLWJvdHRvbToxMHB4
+O2ZvbnQtZmFtaWx5OkFyaWFsLFNhbnMtc2VyaWY7Zm9udC1zaXplOjEzcHg7Y29sb3I6IzIyMiIg
+dmFsaWduPSJ0b3AiPjx0YWJsZSBjZWxsc3BhY2luZz0iMCIgY2VsbHBhZGRpbmc9IjAiPjx0cj48
+dGQgc3R5bGU9InBhZGRpbmctcmlnaHQ6MTBweDtmb250LWZhbWlseTpBcmlhbCxTYW5zLXNlcmlm
+O2ZvbnQtc2l6ZToxM3B4O2NvbG9yOiMyMjIiPjxzcGFuIHN0eWxlPSJmb250LWZhbWlseTpDb3Vy
+aWVyIE5ldyxtb25vc3BhY2UiPiYjeDIwMjI7PC9zcGFuPjwvdGQ+PHRkIHN0eWxlPSJwYWRkaW5n
+LXJpZ2h0OjEwcHg7Zm9udC1mYW1pbHk6QXJpYWwsU2Fucy1zZXJpZjtmb250LXNpemU6MTNweDtj
+b2xvcjojMjIyIj48ZGl2PjxkaXYgc3R5bGU9Im1hcmdpbjowIDAgMC4zZW0gMCI+PHNwYW4gaXRl
+bXByb3A9ImF0dGVuZGVlIiBpdGVtc2NvcGUgaXRlbXR5cGU9Imh0dHA6Ly9zY2hlbWEub3JnL1Bl
+cnNvbiI+PHNwYW4gaXRlbXByb3A9Im5hbWUiPhskQl0vMGZMLztSGyhCPC9zcGFuPjxtZXRhIGl0
+ZW1wcm9wPSJlbWFpbCIgY29udGVudD0ic3Rha3JhbmdlQGdtYWlsLmNvbSIvPjwvc3Bhbj48c3Bh
+biBzdHlsZT0iZm9udC1zaXplOjExcHg7Y29sb3I6Izg4OCI+LSAbJEI6bkAuPFQbKEI8L3NwYW4+
+PC9kaXY+PC9kaXY+PC90ZD48L3RyPjwvdGFibGU+PC90ZD48L3RyPjwvdGFibGU+PC9kaXY+PC90
+ZD48L3RyPjx0cj48dGQgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6I2Y2ZjZmNjtjb2xvcjojODg4
+O2JvcmRlci10b3A6MXB4IFNvbGlkICNjY2M7Zm9udC1mYW1pbHk6QXJpYWwsU2Fucy1zZXJpZjtm
+b250LXNpemU6MTFweCI+PHA+PGEgaHJlZj0iaHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS9jYWxlbmRh
+ci8iIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iIj5Hb29nbGUgGyRCJSslbCVzJUAhPBsoQjwvYT4b
+JEIkKyRpJE4+N0JUPnUbKEI8L3A+PHA+GyRCIVYySEIyIVclKyVsJXMlQCE8JE4/NyQ3JCRNPURq
+JE5ETENOJE48dT8uJCxAX0RqJDUkbCRGJCQkayQ/JGEhIktcJWEhPCVrJHIbKEIgZXhhYnVnc0Bn
+bWFpbC5jb20gGyRCJEskKkF3JGokNyRGJCQkXiQ5ISMbKEI8L3A+PHA+GyRCRExDTiRyPHUkMTxo
+JGkkSiQkJGgkJiRLJDkkayRLJE8hIhsoQmh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vY2FsZW5kYXIv
+IBskQiRLJW0lMCUkJXMkNyEiJSslbCVzJUAhPCRORExDTkBfRGokckpROTkkNyRGJC8kQCQ1JCQh
+IxsoQjwvcD48L3RkPjwvdHI+PC90YWJsZT48L2Rpdj4=
+--047d7b339d5bafeeac04f655874a
+Content-Type: text/calendar; charset=UTF-8; method=REQUEST
+Content-Transfer-Encoding: quoted-printable
+
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+X-GOOGLE-CALID:fqe6ivhm7u26639q9e4sb8dq0s@group.calendar.google.com
+BEGIN:VEVENT
+DTSTART:20140425T150000Z
+DTEND:20140425T160000Z
+DTSTAMP:20140406T011835Z
+UID:thvjhgvt055c9se5qtb5ru03sk@google.com
+CREATED:20140406T011834Z
+DESCRIPTION:=E4=BA=88=E5=AE=9A=E3=82=92 http://www.google.com/calendar/even=
+t?action=3DVIEW&eid=3DdGh2am
+ hndnQwNTVjOXNlNXF0YjVydTAzc2sgZnFlNml2aG03dTI2NjM5cTllNHNiOGRxMHNAZw =E3=
+=81=AB=E8=A1=A8=E7=A4=BA
+LAST-MODIFIED:20140406T011835Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:=E9=AB=98=E6=A0=A1=E8=AA=AC=E6=98=8E=E4=BC=9A
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:This is an event reminder
+TRIGGER:-P0DT0H10M0S
+END:VALARM
+END:VEVENT
+END:VCALENDAR
+
+--047d7b339d5bafeeac04f655874a--
+--047d7b339d5bafeeb004f655874c
+Content-Type: application/ics; name="invite.ics"
+Content-Disposition: attachment; filename="invite.ics"
+Content-Transfer-Encoding: base64
+
+QkVHSU46VkNBTEVOREFSDQpQUk9ESUQ6LS8vR29vZ2xlIEluYy8vR29vZ2xlIENhbGVuZGFyIDcw
+LjkwNTQvL0VODQpWRVJTSU9OOjIuMA0KQ0FMU0NBTEU6R1JFR09SSUFODQpNRVRIT0Q6UkVRVUVT
+VA0KWC1HT09HTEUtQ0FMSUQ6ZnFlNml2aG03dTI2NjM5cTllNHNiOGRxMHNAZ3JvdXAuY2FsZW5k
+YXIuZ29vZ2xlLmNvbQ0KQkVHSU46VkVWRU5UDQpEVFNUQVJUOjIwMTQwNDI1VDE1MDAwMFoNCkRU
+RU5EOjIwMTQwNDI1VDE2MDAwMFoNCkRUU1RBTVA6MjAxNDA0MDZUMDExODM1Wg0KVUlEOnRodmpo
+Z3Z0MDU1YzlzZTVxdGI1cnUwM3NrQGdvb2dsZS5jb20NCkNSRUFURUQ6MjAxNDA0MDZUMDExODM0
+Wg0KREVTQ1JJUFRJT0465LqI5a6a44KSIGh0dHA6Ly93d3cuZ29vZ2xlLmNvbS9jYWxlbmRhci9l
+dmVudD9hY3Rpb249VklFVyZlaWQ9ZEdoMmFtDQogaG5kblF3TlRWak9YTmxOWEYwWWpWeWRUQXpj
+MnNnWm5GbE5tbDJhRzAzZFRJMk5qTTVjVGxsTkhOaU9HUnhNSE5BWncg44Gr6KGo56S6DQpMQVNU
+LU1PRElGSUVEOjIwMTQwNDA2VDAxMTgzNVoNCkxPQ0FUSU9OOg0KU0VRVUVOQ0U6MA0KU1RBVFVT
+OkNPTkZJUk1FRA0KU1VNTUFSWTrpq5jmoKHoqqzmmI7kvJoNClRSQU5TUDpPUEFRVUUNCkJFR0lO
+OlZBTEFSTQ0KQUNUSU9OOkRJU1BMQVkNCkRFU0NSSVBUSU9OOlRoaXMgaXMgYW4gZXZlbnQgcmVt
+aW5kZXINClRSSUdHRVI6LVAwRFQwSDEwTTBTDQpFTkQ6VkFMQVJNDQpFTkQ6VkVWRU5UDQpFTkQ6
+VkNBTEVOREFSDQo=
+--047d7b339d5bafeeb004f655874c--
