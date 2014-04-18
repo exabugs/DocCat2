@@ -5,6 +5,9 @@
 var log = require('log')
   , should = require("should")
   , text = require('../../lib/text')
+  , mongo = require('../../lib/db')
+  , async = require('async')
+
   ;
 
 describe('text', function () {
@@ -16,6 +19,27 @@ describe('text', function () {
         done();
       })
     })
-  })
+  });
+
+  describe('search', function () {
+    it('should return -1 when the value is not present', function (done) {
+      async.waterfall([
+        function (next) {
+          mongo.open(function (err, db) {
+            next(err, db);
+          });
+        },
+        function (db, next) {
+          var collection = db.collection('mails.files');
+          text.search(collection, {}, 'メールを削除', function (err, result) {
+            next(err, db);
+          })
+        }
+      ], function (err, db) {
+        db.close();
+        done(err);
+      });
+    })
+  });
 
 });
