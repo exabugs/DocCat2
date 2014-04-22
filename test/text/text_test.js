@@ -13,17 +13,6 @@ var _ = require('underscore')
 describe('text', function () {
 
   describe('集合演算', function () {
-    it('共通集合', function (done) {
-      var array_a = [10, 30, 50, 70, 90];
-      var array_b = [5, 10, 15, 20, 25, 30];
-      var result = text.util._intersect(array_a, array_b);
-      var expected = [
-        [10, 10],
-        [30, 30]
-      ];
-      result.should.eql(expected);
-      done();
-    });
 
     it('共通集合', function (done) {
       var array_a = [
@@ -44,7 +33,7 @@ describe('text', function () {
         {k: 25},
         {k: 30}
       ];
-      var result = text.util.intersect(array_a, array_b);
+      var result = text.util.intersect(array_a, array_b, 'k');
       var expected = [
         [
           {k: 10},
@@ -78,7 +67,7 @@ describe('text', function () {
         {k: '30', v: -4}, //
         {k: '35', v: 2}
       ];
-      var result = text.util.intersect(array_a, array_b);
+      var result = text.util.intersect(array_a, array_b, 'k');
       var expected = [
         [
           {k: '10', v: 4},
@@ -96,7 +85,7 @@ describe('text', function () {
       var norm_x = 4 * (-4) + 4 * (-4);
       expected = norm_x / norm_a / norm_b;
 
-      var value = text.util._innerproduct(result, 'v');
+      var value = text.util.innerproduct(result, 'v');
       value.should.eql(expected);
 
       done();
