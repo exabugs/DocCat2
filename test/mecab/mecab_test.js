@@ -3,23 +3,27 @@
  * @author exabugs@gmail.com
  */
 
-var log = require('log')
-  , should = require("should")
-  , MeCab = require('../../lib/mecab').MeCab
+"use strict";
+
+var should = require('should')
+  , fs = require('fs')
+  , MeCab = require('node-wakame')
   ;
 
 describe('MeCab', function () {
 
-  it('MeCab', function (done) {
+  it('Case 1 : String', function (done) {
 
-    var mecab = new MeCab();
+    var input = '今日は残業。明日も残業。';
+    var process = MeCab.parse(input);
 
-    var process = mecab.parse("今日は残業");
-
-    var result = [];
+    var result = {};
 
     process.on('record', function (record, index) {
-      result.push(record);
+      if (record[1] === '名詞') {
+        var count = result[record[0]];
+        result[record[0]] = count ? ++count : 1;
+      }
     });
 
     process.on('error', function (error) {
@@ -27,12 +31,36 @@ describe('MeCab', function () {
     });
 
     process.on('end', function (count) {
-      should.equal(result[0][0], "今日");
-      should.equal(result[1][0], "は");
-      should.equal(result[2][0], "残業");
+      result.should.eql({ '今日': 1, '残業': 2, '明日': 1 });
       done(null, result, count);
     });
 
-  })
+  });
+
+  it('Case 2: Stream', function (done) {
+
+    var input = fs.createReadStream('test/mecab/data.txt');
+    var process = MeCab.parse(input);
+
+    var result = {};
+
+    process.on('record', function (record, index) {
+      if (record[1] === '名詞') {
+        var count = result[record[0]];
+        result[record[0]] = count ? ++count : 1;
+      }
+    });
+
+    process.on('error', function (error) {
+      done(error);
+    });
+
+    process.on('end', function (count) {
+      result.should.eql({ '今日': 1, '残業': 2, '明日': 1 });
+      done(null, result, count);
+    });
+
+  });
 
 });
+
