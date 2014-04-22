@@ -78,7 +78,7 @@ describe('text', function () {
         {k: '30', v: -4}, //
         {k: '35', v: 2}
       ];
-      var result = text.util.intersect(array_a, array_b, text.util.cmp_k);
+      var result = text.util.intersect(array_a, array_b);
       var expected = [
         [
           {k: '10', v: 4},
