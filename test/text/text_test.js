@@ -16,7 +16,7 @@ describe('text', function () {
     it('共通集合', function (done) {
       var array_a = [10, 30, 50, 70, 90];
       var array_b = [5, 10, 15, 20, 25, 30];
-      var result = text.util.intersect(array_a, array_b);
+      var result = text.util._intersect(array_a, array_b);
       var expected = [
         [10, 10],
         [30, 30]
@@ -26,9 +26,6 @@ describe('text', function () {
     });
 
     it('共通集合', function (done) {
-      var compare = function (a, b) {
-        return a.k == b.k ? 0 : a.k < b.k ? -1 : 1
-      };
       var array_a = [
         {k: 70},
         {k: 10},
@@ -47,7 +44,7 @@ describe('text', function () {
         {k: 25},
         {k: 30}
       ];
-      var result = text.util.intersect(array_a, array_b, compare);
+      var result = text.util.intersect(array_a, array_b);
       var expected = [
         [
           {k: 10},
@@ -63,9 +60,6 @@ describe('text', function () {
     });
 
     it('共通集合', function (done) {
-      var compare = function (a, b) {
-        return a.k == b.k ? 0 : a.k < b.k ? -1 : 1
-      };
       var array_a = [
         {k: '70', v: 2},
         {k: '10', v: 4}, //
@@ -84,7 +78,7 @@ describe('text', function () {
         {k: '30', v: -4}, //
         {k: '35', v: 2}
       ];
-      var result = text.util.intersect(array_a, array_b, compare);
+      var result = text.util.intersect(array_a, array_b, text.util.cmp_k);
       var expected = [
         [
           {k: '10', v: 4},
@@ -102,7 +96,7 @@ describe('text', function () {
       var norm_x = 4 * (-4) + 4 * (-4);
       expected = norm_x / norm_a / norm_b;
 
-      var value = text.util.innerproduct(result);
+      var value = text.util._innerproduct(result);
       value.should.eql(expected);
 
       done();
