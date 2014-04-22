@@ -85,7 +85,7 @@ describe('text', function () {
       var norm_x = 4 * (-4) + 4 * (-4);
       expected = norm_x / norm_a / norm_b;
 
-      var value = text.util.innerproduct(result, 'v');
+      var value = text.util.cosine(result, 'v');
       value.should.eql(expected);
 
       done();
