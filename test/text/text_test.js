@@ -12,6 +12,35 @@ var _ = require('underscore')
 
 describe('text', function () {
 
+  describe('オブジェクト操作', function () {
+
+    it('getValue', function (done) {
+      var target = {a: {b: {c: 'xxx'}}};
+      var value = text.util.getValueEx(target, 'a.b.c');
+      var expected = 'xxx';
+      value.should.eql(expected);
+
+      var value2 = text.util.getValueEx(target, 'a.b.d');
+
+
+      done();
+    });
+
+    it('setValue', function (done) {
+      var target = {a: {d: 2}};
+      text.util.setValueEx(target, 'a.b.c', 'xxx');
+//      value.should.eql(expected);
+      target.should.be.type('object');
+      target.a.should.be.type('object');
+      target.a.b.should.be.type('object');
+      target.a.b.c.should.eql('xxx');
+
+
+      done();
+    });
+
+  });
+
   describe('集合演算', function () {
 
     it('共通集合', function (done) {
@@ -123,5 +152,27 @@ describe('text', function () {
       });
     })
   });
+
+  describe('search', function () {
+    it('should return -1 when the value is not present', function (done) {
+      async.waterfall([
+        function (next) {
+          mongo.open(function (err, db) {
+            next(err, db);
+          });
+        },
+        function (db, next) {
+          var collection = db.collection('mails.files');
+          text.object_frequency(collection, 'mails.df', function (err, result) {
+            next(err, db);
+          })
+        }
+      ], function (err, db) {
+        db.close();
+        done(err);
+      });
+    })
+  });
+
 
 });
