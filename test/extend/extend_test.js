@@ -16,9 +16,9 @@ describe('extend', function () {
 
       var target = {a: {b: {c: 'xxx'}}};
 
-      should.equal(extend.getValueEx(target, 'a.b.c'), 'xxx');
+      should.equal(extend.getValue(target, 'a.b.c'), 'xxx');
 
-      should.equal(extend.getValueEx(target, 'a.b.d'), undefined);
+      should.equal(extend.getValue(target, 'a.b.d'), undefined);
 
     });
 
@@ -26,33 +26,33 @@ describe('extend', function () {
 
       var target = {a: {b: {c: 'xxx'}}};
 
-      extend.setValueEx(target, 'a.b.d', 'yyy');
+      extend.setValue(target, 'a.b.d', 'yyy');
 
-      should.equal(extend.getValueEx(target, 'a.b.c'), 'xxx');
+      should.equal(extend.getValue(target, 'a.b.c'), 'xxx');
 
-      should.equal(extend.getValueEx(target, 'a.b.d'), 'yyy');
-
-    });
-
-    it('hasValueEx', function () {
-
-      var target = {a: {b: {c: 'xxx'}}};
-
-      should.equal(extend.hasValueEx(target, 'a.b.c'), true);
-
-      should.equal(extend.hasValueEx(target, 'a.b.d'), false);
+      should.equal(extend.getValue(target, 'a.b.d'), 'yyy');
 
     });
 
-    it('delValueEx', function () {
+    it('hasValue', function () {
 
       var target = {a: {b: {c: 'xxx'}}};
 
-      extend.delValueEx(target, 'a.b.c')
+      should.equal(extend.hasValue(target, 'a.b.c'), true);
 
-      should.equal(extend.hasValueEx(target, 'a.b.c'), false);
+      should.equal(extend.hasValue(target, 'a.b.d'), false);
 
-      should.equal(extend.hasValueEx(target, 'a.b.d'), false);
+    });
+
+    it('delValue', function () {
+
+      var target = {a: {b: {c: 'xxx'}}};
+
+      extend.delValue(target, 'a.b.c')
+
+      should.equal(extend.hasValue(target, 'a.b.c'), false);
+
+      should.equal(extend.hasValue(target, 'a.b.d'), false);
 
     });
 
