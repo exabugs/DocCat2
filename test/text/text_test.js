@@ -14,29 +14,26 @@ describe('text', function () {
 
   describe('オブジェクト操作', function () {
 
-    it('getValue', function (done) {
+    it('getValue', function () {
+
       var target = {a: {b: {c: 'xxx'}}};
-      var value = text.util.getValueEx(target, 'a.b.c');
-      var expected = 'xxx';
-      value.should.eql(expected);
 
-      var value2 = text.util.getValueEx(target, 'a.b.d');
+      should.equal(text.util.getValueEx(target, 'a.b.c'), 'xxx');
 
+      should.equal(text.util.getValueEx(target, 'a.b.d'), undefined);
 
-      done();
     });
 
-    it('setValue', function (done) {
-      var target = {a: {d: 2}};
-      text.util.setValueEx(target, 'a.b.c', 'xxx');
-//      value.should.eql(expected);
-      target.should.be.type('object');
-      target.a.should.be.type('object');
-      target.a.b.should.be.type('object');
-      target.a.b.c.should.eql('xxx');
+    it('setValue', function () {
 
+      var target = {a: {b: {c: 'xxx'}}};
 
-      done();
+      text.util.setValueEx(target, 'a.b.d', 'yyy');
+
+      should.equal(text.util.getValueEx(target, 'a.b.c'), 'xxx');
+
+      should.equal(text.util.getValueEx(target, 'a.b.d'), 'yyy');
+
     });
 
   });
