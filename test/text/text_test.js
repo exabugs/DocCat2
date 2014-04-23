@@ -36,6 +36,28 @@ describe('text', function () {
 
     });
 
+    it('hasValueEx', function () {
+
+      var target = {a: {b: {c: 'xxx'}}};
+
+      should.equal(text.util.hasValueEx(target, 'a.b.c'), true);
+
+      should.equal(text.util.hasValueEx(target, 'a.b.d'), false);
+
+    });
+
+    it('delValueEx', function () {
+
+      var target = {a: {b: {c: 'xxx'}}};
+
+      text.util.delValueEx(target, 'a.b.c')
+
+      should.equal(text.util.hasValueEx(target, 'a.b.c'), false);
+
+      should.equal(text.util.hasValueEx(target, 'a.b.d'), false);
+
+    });
+
   });
 
   describe('集合演算', function () {
