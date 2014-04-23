@@ -14,11 +14,31 @@ describe('extend', function () {
 
     it('getValue', function () {
 
+      var target = {c: 'xxx'};
+
+      should.equal(extend.getValue(target, 'c'), 'xxx');
+
+    });
+
+    it('getValue', function () {
+
       var target = {a: {b: {c: 'xxx'}}};
 
       should.equal(extend.getValue(target, 'a.b.c'), 'xxx');
 
       should.equal(extend.getValue(target, 'a.b.d'), undefined);
+
+    });
+
+    it('setValue', function () {
+
+      var target = {c: 'xxx'};
+
+      extend.setValue(target, 'd', 'yyy');
+
+      should.equal(extend.getValue(target, 'c'), 'xxx');
+
+      should.equal(extend.getValue(target, 'd'), 'yyy');
 
     });
 
