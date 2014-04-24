@@ -5,10 +5,12 @@
 var _ = require('underscore')
   , log = require('log')
   , should = require("should")
-  , util = require('../../lib/text/util')
+  , text = require('../../lib/text')
+  , mongo = require('../../lib/db')
+  , async = require('async')
   ;
 
-describe('text', function () {
+describe('util 2', function () {
 
   describe('集合演算', function () {
 
@@ -31,7 +33,7 @@ describe('text', function () {
         {k: 25},
         {k: 30}
       ];
-      var result = util.intersect(array_a, array_b, 'k');
+      var result = text.util.intersect(array_a, array_b, 'k');
       var expected = [
         [
           {k: 10},
@@ -65,7 +67,7 @@ describe('text', function () {
         {k: '30', v: -4}, //
         {k: '35', v: 2}
       ];
-      var result = util.intersect(array_a, array_b, 'k');
+      var result = text.util.intersect(array_a, array_b, 'k');
       var expected = [
         [
           {k: '10', v: 4},
@@ -83,7 +85,7 @@ describe('text', function () {
       var norm_x = 4 * (-4) + 4 * (-4);
       expected = norm_x / norm_a / norm_b;
 
-      var value = util.cosine(result, 'v');
+      var value = text.util.cosine(result, 'v');
       value.should.eql(expected);
 
       done();
@@ -94,3 +96,4 @@ describe('text', function () {
 
 
 });
+
