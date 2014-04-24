@@ -54,6 +54,20 @@ describe('extend', function () {
 
     });
 
+    it('setValue (readonly)', function () {
+
+      var target = {};
+
+      var val = extend.getValue(target, 'a.b.d', 'yyy');
+
+      extend.setValue(target, 'a.b.d', 'yyy');
+
+      should.equal(extend.getValue(target, 'a.b.c'), undefined);
+
+      should.equal(extend.getValue(target, 'a.b.d'), 'yyy');
+
+    });
+
     it('hasValue', function () {
 
       var target = {a: {b: {c: 'xxx'}}};
@@ -62,6 +76,9 @@ describe('extend', function () {
 
       should.equal(extend.hasValue(target, 'a.b.d'), false);
 
+      should.equal(extend.hasValue(target, 'a.x.y'), false);
+
+      should.equal(extend.hasValue(target, 'a.x.z'), false);
     });
 
     it('delValue', function () {
