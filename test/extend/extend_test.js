@@ -72,6 +72,10 @@ describe('extend', function () {
 
       var target = {a: {b: {c: 'xxx'}}};
 
+      should.equal(extend.hasValue(target, 'a'), true);
+
+      should.equal(extend.hasValue(target, 'A'), false);
+
       should.equal(extend.hasValue(target, 'a.b.c'), true);
 
       should.equal(extend.hasValue(target, 'a.b.d'), false);
