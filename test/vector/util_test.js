@@ -6,8 +6,6 @@ var _ = require('underscore')
   , log = require('log')
   , should = require("should")
   , vector = require('../../lib/vector')
-  , mongo = require('../../lib/db')
-  , async = require('async')
   ;
 
 describe('util 2', function () {
@@ -53,7 +51,7 @@ describe('util 2', function () {
 
   describe('集合演算', function () {
 
-    it('共通集合', function (done) {
+    it('共通集合', function () {
       var array_a = [
         {k: 70},
         {k: 10},
@@ -90,10 +88,9 @@ describe('util 2', function () {
         ]
       ];
       result.should.eql(expected);
-      done();
     });
 
-    it('共通集合', function (done) {
+    it('共通集合', function () {
       var array_a = [
         {k: '70', v: 2},
         {k: '10', v: 4}, //
@@ -132,8 +129,6 @@ describe('util 2', function () {
 
       var value = vector.util.cosine(result, 'v');
       value.should.eql(expected);
-
-      done();
     });
 
 
