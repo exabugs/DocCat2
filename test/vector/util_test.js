@@ -165,13 +165,13 @@ describe('vector.util', function () {
       result.should.eql(expected);
 
 
-      var norm_a = Math.sqrt((4 * 4) + (4 * 4));
-      var norm_b = Math.sqrt((-4 * -4) + (-4 * -4));
+      var norm_a = Math.sqrt((4 * 4) * 2+ (2 * 2) * 3);
+      var norm_b = Math.sqrt((-4 * -4) * 2 + (2 * 2) * 4);
       var norm_x = 4 * (-4) + 4 * (-4);
       expected = norm_x / norm_a / norm_b;
 
-//      var value = vector.util.cosine(result, 'v');
-//      value.should.eql(expected);
+      var value = vector.util.cosine(array_a, array_b, 'k', 'v');
+      value.should.eql(expected);
     });
 
 
