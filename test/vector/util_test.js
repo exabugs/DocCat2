@@ -12,6 +12,26 @@ describe('vector.util', function () {
   describe('ライブラリ', function () {
 
     /**
+     * ノルム
+     * @param array
+     * @param attr
+     * @returns {*}
+     */
+    it('ソート', function () {
+      var array = [
+        {k: 6},
+        {k: 4},
+        {k: 2}
+      ];
+
+      var result = vector.util.norm(array, 'k');
+
+      var expected = Math.sqrt(6 * 6 + 4 * 4 + 2 * 2)
+
+      result.should.eql(expected);
+    });
+
+    /**
      * ソート
      * @param array
      * @param attr
@@ -35,7 +55,7 @@ describe('vector.util', function () {
       result.should.eql(expected);
     });
 
-      /**
+    /**
      * バイナリサーチ
      * @param array 検索対象
      * @param value 検索値
@@ -110,18 +130,10 @@ describe('vector.util', function () {
       ];
       array_b = vector.util.sort(array_b, 'k');
 
-      var result = vector.util.intersect(array_a, array_b, 'k');
+      var result = vector.util.intersect(array_a, array_b, 'k', 'k');
 
-      var expected = [
-        [
-          {k: 10},
-          {k: 10}
-        ],
-        [
-          {k: 30},
-          {k: 30}
-        ]
-      ];
+      var expected = 10 * 10 + 30 * 30;
+
       result.should.eql(expected);
     });
 
@@ -145,27 +157,21 @@ describe('vector.util', function () {
       ];
       array_b = vector.util.sort(array_b, 'k');
 
-      var result = vector.util.intersect(array_a, array_b, 'k');
+      var result = vector.util.intersect(array_a, array_b, 'k', 'v');
 
-      var expected = [
-        [
-          {k: '10', v: 4}, // 3
-          {k: '10', v: -4}
-        ],
-        [
-          {k: '30', v: 4}, // 5
-          {k: '30', v: -4}
-        ]
-      ];
+      var expected = 4 * (-4) + 4 * (-4);
+
+
       result.should.eql(expected);
+
 
       var norm_a = Math.sqrt((4 * 4) + (4 * 4));
       var norm_b = Math.sqrt((-4 * -4) + (-4 * -4));
       var norm_x = 4 * (-4) + 4 * (-4);
       expected = norm_x / norm_a / norm_b;
 
-      var value = vector.util.cosine(result, 'v');
-      value.should.eql(expected);
+//      var value = vector.util.cosine(result, 'v');
+//      value.should.eql(expected);
     });
 
 
