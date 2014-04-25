@@ -21,26 +21,7 @@ describe('text', function () {
     })
   });
 
-  describe('search 1', function () {
-    it('should return -1 when the value is not present', function (done) {
-      async.waterfall([
-        function (next) {
-          mongo.open(function (err, db) {
-            next(err, db);
-          });
-        },
-        function (db, next) {
-          var collection = db.collection('mails.files');
-          text.search(db, collection, null, {}, 'メールを削除', function (err, result) {
-            next(err, db);
-          })
-        }
-      ], function (err, db) {
-        db.close();
-        done(err);
-      });
-    })
-  });
+
 
   describe('search 2', function () {
     it('should return -1 when the value is not present', function (done) {
