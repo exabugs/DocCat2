@@ -10,7 +10,7 @@ var _ = require('underscore')
   , async = require('async')
   ;
 
-describe('text', function () {
+describe('text.index', function () {
 
   describe('parse 1', function () {
     it('should return -1 when the value is not present', function (done) {
@@ -20,8 +20,6 @@ describe('text', function () {
       })
     })
   });
-
-
 
   describe('search 2', function () {
     it('should return -1 when the value is not present', function (done) {
@@ -50,6 +48,5 @@ describe('text', function () {
       });
     })
   });
-
 
 });

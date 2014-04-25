@@ -8,10 +8,46 @@ var _ = require('underscore')
   , vector = require('../../lib/vector')
   ;
 
-describe('util 2', function () {
-  describe('集合演算', function () {
-    //search: function (array, value, attr, head) {
-    it('共通集合', function () {
+describe('vector.util', function () {
+  describe('ライブラリ', function () {
+
+    /**
+     * ソート
+     * @param array
+     * @param attr
+     * @returns {*}
+     */
+    it('ソート', function () {
+      var array = [
+        {k: 6},
+        {k: 4},
+        {k: 2}
+      ];
+
+      var result = vector.util.sort(array, 'k');
+
+      var expected = [
+        {k: 2},
+        {k: 4},
+        {k: 6}
+      ];
+
+      result.should.eql(expected);
+    });
+
+      /**
+     * バイナリサーチ
+     * @param array 検索対象
+     * @param value 検索値
+     * @param attr 比較属性
+     * @param head 開始インデックス
+     * @returns
+     *  0以上 : 見つかった
+     *  -1   : 見つからない (範囲内)
+     *  -2   : 見つからない (最小より小さい)
+     *  -3   : 見つからない (最大より大きい)
+     */
+    it('バイナリサーチ', function () {
       var array = [
         {k: 2},
         {k: 4},
@@ -61,9 +97,8 @@ describe('util 2', function () {
         {k: 91},
         {k: 92}
       ];
-      array_a = _.sortBy(array_a, function (value) {
-        return value.k;
-      });
+      array_a = vector.util.sort(array_a, 'k');
+
       var array_b = [
         {k: 5},
         {k: 10},
@@ -73,10 +108,10 @@ describe('util 2', function () {
         {k: 30},
         {k: 35}
       ];
-      array_b = _.sortBy(array_b, function (value) {
-        return value.k;
-      });
+      array_b = vector.util.sort(array_b, 'k');
+
       var result = vector.util.intersect(array_a, array_b, 'k');
+
       var expected = [
         [
           {k: 10},
@@ -90,7 +125,7 @@ describe('util 2', function () {
       result.should.eql(expected);
     });
 
-    it('共通集合', function () {
+    it('コサイン類似度', function () {
       var array_a = [
         {k: '70', v: 2},
         {k: '10', v: 4}, //
@@ -98,9 +133,8 @@ describe('util 2', function () {
         {k: '30', v: 4}, //
         {k: '90', v: 2}
       ];
-      array_a = _.sortBy(array_a, function (value) {
-        return value.k;
-      });
+      array_a = vector.util.sort(array_a, 'k');
+
       var array_b = [
         {k: '10', v: -4}, //
         {k: '12', v: 2},
@@ -109,7 +143,10 @@ describe('util 2', function () {
         {k: '30', v: -4}, //
         {k: '35', v: 2}
       ];
+      array_b = vector.util.sort(array_b, 'k');
+
       var result = vector.util.intersect(array_a, array_b, 'k');
+
       var expected = [
         [
           {k: '10', v: 4}, // 3
