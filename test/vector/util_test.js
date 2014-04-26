@@ -5,10 +5,13 @@
 var _ = require('underscore')
   , log = require('log')
   , should = require("should")
-  , vector = require('../../lib/vector')
+  , Util = require('../../lib/vector/util')
   ;
 
-describe('vector.util', function () {
+describe('util', function () {
+
+  var util = new Util();
+
   describe('ライブラリ', function () {
 
     /**
@@ -24,7 +27,7 @@ describe('vector.util', function () {
         {k: 2}
       ];
 
-      var result = vector.util.norm(array, 'k');
+      var result = util.norm(array, 'k');
 
       var expected = Math.sqrt(6 * 6 + 4 * 4 + 2 * 2)
 
@@ -44,7 +47,7 @@ describe('vector.util', function () {
         {k: 2}
       ];
 
-      var result = vector.util.sort(array, 'k');
+      var result = util.sort(array, 'k');
 
       var expected = [
         {k: 2},
@@ -75,31 +78,31 @@ describe('vector.util', function () {
       ];
       var result;
 
-      result = vector.util.search(array, {k: 0}, 'k');
+      result = util.search(array, {k: 0}, 'k');
       result.should.eql(-2);
 
-      result = vector.util.search(array, {k: 1}, 'k');
+      result = util.search(array, {k: 1}, 'k');
       result.should.eql(-2);
 
-      result = vector.util.search(array, {k: 2}, 'k');
+      result = util.search(array, {k: 2}, 'k');
       result.should.eql(0);
 
-      result = vector.util.search(array, {k: 3}, 'k');
+      result = util.search(array, {k: 3}, 'k');
       result.should.eql(-1);
 
-      result = vector.util.search(array, {k: 4}, 'k');
+      result = util.search(array, {k: 4}, 'k');
       result.should.eql(1);
 
-      result = vector.util.search(array, {k: 5}, 'k');
+      result = util.search(array, {k: 5}, 'k');
       result.should.eql(-1);
 
-      result = vector.util.search(array, {k: 6}, 'k');
+      result = util.search(array, {k: 6}, 'k');
       result.should.eql(2);
 
-      result = vector.util.search(array, {k: 7}, 'k');
+      result = util.search(array, {k: 7}, 'k');
       result.should.eql(-3);
 
-      result = vector.util.search(array, {k: 8}, 'k');
+      result = util.search(array, {k: 8}, 'k');
       result.should.eql(-3);
 
     });
@@ -117,7 +120,7 @@ describe('vector.util', function () {
         {k: 91},
         {k: 92}
       ];
-      array_a = vector.util.sort(array_a, 'k');
+      array_a = util.sort(array_a, 'k');
 
       var array_b = [
         {k: 5},
@@ -128,9 +131,9 @@ describe('vector.util', function () {
         {k: 30},
         {k: 35}
       ];
-      array_b = vector.util.sort(array_b, 'k');
+      array_b = util.sort(array_b, 'k');
 
-      var result = vector.util.intersect(array_a, array_b, 'k', 'k');
+      var result = util.intersect(array_a, array_b, 'k', 'k');
 
       var expected = 10 * 10 + 30 * 30;
 
@@ -145,7 +148,7 @@ describe('vector.util', function () {
         {k: '30', v: 4}, //
         {k: '90', v: 2}
       ];
-      array_a = vector.util.sort(array_a, 'k');
+      array_a = util.sort(array_a, 'k');
 
       var array_b = [
         {k: '10', v: -4}, //
@@ -155,9 +158,9 @@ describe('vector.util', function () {
         {k: '30', v: -4}, //
         {k: '35', v: 2}
       ];
-      array_b = vector.util.sort(array_b, 'k');
+      array_b = util.sort(array_b, 'k');
 
-      var result = vector.util.intersect(array_a, array_b, 'k', 'v');
+      var result = util.intersect(array_a, array_b, 'k', 'v');
 
       var expected = 4 * (-4) + 4 * (-4);
 
@@ -170,7 +173,7 @@ describe('vector.util', function () {
       var norm_x = 4 * (-4) + 4 * (-4);
       expected = norm_x / norm_a / norm_b;
 
-      var value = vector.util.cosine(array_a, array_b, 'k', 'v');
+      var value = util.cosine(array_a, array_b, 'k', 'v');
       value.should.eql(expected);
     });
 

@@ -12,7 +12,7 @@ var _ = require('underscore')
 
 var TEST_COLLECTION = 'test_users';
 
-describe('vector.index', function () {
+describe('index', function () {
 
   describe('ライブラリ', function () {
 
