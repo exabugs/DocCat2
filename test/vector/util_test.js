@@ -35,6 +35,31 @@ describe('util', function () {
     });
 
     /**
+     * 正規化
+     * @param array
+     * @param attr
+     * @returns {*}
+     */
+    it('正規化', function () {
+      var array = [
+        {v: 6},
+        {v: 4},
+        {v: 2}
+      ];
+
+      var result = util.normalize(array);
+
+      var norm = Math.sqrt(6 * 6 + 4 * 4 + 2 * 2)
+      var expected = [
+        {v: 6 / norm},
+        {v: 4 / norm},
+        {v: 2 / norm}
+      ];
+
+      result.should.eql(expected);
+    });
+
+   /**
      * ソート
      * @param array
      * @param attr
