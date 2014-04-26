@@ -33,7 +33,7 @@ describe('index', function () {
         var data = [
           {
             user_id: 1,
-            feature: [
+            tf: [
               {key: 'a', val: '2'},
               {key: 'b', val: '2'},
               {key: 'c', val: '2'}
@@ -41,10 +41,11 @@ describe('index', function () {
           },
           {
             user_id: 2,
-            feature: [
+            tf: [
               {key: 'a', val: '1'},
               {key: 'b', val: '1'},
-              {key: 'c', val: '1'}
+              {key: 'c', val: '1'},
+              {key: 'd', val: '1'}
             ]
           }
         ];
@@ -71,19 +72,18 @@ describe('index', function () {
       });
       tasks.push(function (db, next) {
         var collection = db.collection(TEST_COLLECTION);
-
-        var condition = {user_id: 1};
-        var target = 'feature';
-        var field = {key: 'key', val: 'val'};
+        var attribute = 'tf';
+        var field = {k: 'key', v: 'val'};
         var keyword = [
           {key: 'a', val: 1},
           {key: 'c', val: 1}
         ];
-        var weight = {'a': 1, 'b': 1, 'c': 1};
-        var out = {inline: 1};
+        var option = {
+          condition: {user_id: 1},
+          copy: ['user_id']
+        }
 
-        //exports.cosine = function (collection, condition, target, field, keyword, weight, out, callback) {
-        vector.cosine(collection, condition, target, field, keyword, weight, out, function (err, result) {
+        vector.cosine(collection, attribute, field, keyword, option, function (err, result) {
           next(err, db);
         });
       });
