@@ -10,24 +10,70 @@ var _ = require('underscore')
 
 describe('util', function () {
 
-  var util = new Util();
+  var util = new Util('k', 'v');
 
   describe('ライブラリ', function () {
 
-    /**
+    it('extend', function () {
+
+      var util = new Util();
+      var object;
+      var result;
+
+      var master = {
+        test_function_a: function(a) {
+          return a + 1;
+        },
+        test_function_b: function(a) {
+          return a + 2;
+        }
+      }
+      // case 1 : 別オブジェクトに、指定した属性をコピーする場合
+      object = {};
+      util.extend(object, master, ['test_function_b']);
+      result = typeof object.test_function_a;
+      result.should.eql('undefined');
+      result = object.test_function_b(100);
+      result.should.eql(102);
+
+      // case 2 : 別オブジェクトに、全ての属性をコピーする場合
+      object = {};
+      util.extend(object, master);
+      result = object.test_function_a(100);
+      result.should.eql(101);
+      result = object.test_function_b(100);
+      result.should.eql(102);
+
+      // case 3 : 自分自身に、指定した属性をコピーする場合
+      util.extend(master, ['test_function_b']);
+      result = typeof util.test_function_a;
+      result.should.eql('undefined');
+      result = util.test_function_b(100);
+      result.should.eql(102);
+
+      // case 4 : 自分自身に、全ての属性をコピーする場合
+      util.extend(master);
+      result = util.test_function_a(100);
+      result.should.eql(101);
+      result = util.test_function_b(100);
+      result.should.eql(102);
+
+    });
+
+      /**
      * ノルム
      * @param array
      * @param attr
      * @returns {*}
      */
-    it('ソート', function () {
+    it('ノルム', function () {
       var array = [
-        {k: 6},
-        {k: 4},
-        {k: 2}
+        {v: 6},
+        {v: 4},
+        {v: 2}
       ];
 
-      var result = util.norm(array, 'k');
+      var result = util.norm(array);
 
       var expected = Math.sqrt(6 * 6 + 4 * 4 + 2 * 2)
 
@@ -47,7 +93,7 @@ describe('util', function () {
         {k: 2}
       ];
 
-      var result = util.sort(array, 'k');
+      var result = util.sort(array);
 
       var expected = [
         {k: 2},
@@ -78,31 +124,31 @@ describe('util', function () {
       ];
       var result;
 
-      result = util.search(array, {k: 0}, 'k');
+      result = util.search(array, {k: 0});
       result.should.eql(-2);
 
-      result = util.search(array, {k: 1}, 'k');
+      result = util.search(array, {k: 1});
       result.should.eql(-2);
 
-      result = util.search(array, {k: 2}, 'k');
+      result = util.search(array, {k: 2});
       result.should.eql(0);
 
-      result = util.search(array, {k: 3}, 'k');
+      result = util.search(array, {k: 3});
       result.should.eql(-1);
 
-      result = util.search(array, {k: 4}, 'k');
+      result = util.search(array, {k: 4});
       result.should.eql(1);
 
-      result = util.search(array, {k: 5}, 'k');
+      result = util.search(array, {k: 5});
       result.should.eql(-1);
 
-      result = util.search(array, {k: 6}, 'k');
+      result = util.search(array, {k: 6});
       result.should.eql(2);
 
-      result = util.search(array, {k: 7}, 'k');
+      result = util.search(array, {k: 7});
       result.should.eql(-3);
 
-      result = util.search(array, {k: 8}, 'k');
+      result = util.search(array, {k: 8});
       result.should.eql(-3);
 
     });
@@ -110,7 +156,9 @@ describe('util', function () {
 
   describe('集合演算', function () {
 
-    it('共通集合', function () {
+    it('内積', function () {
+      var util = new Util('k', 'k');
+
       var array_a = [
         {k: 70},
         {k: 10},
@@ -120,7 +168,7 @@ describe('util', function () {
         {k: 91},
         {k: 92}
       ];
-      array_a = util.sort(array_a, 'k');
+      array_a = util.sort(array_a);
 
       var array_b = [
         {k: 5},
@@ -131,9 +179,9 @@ describe('util', function () {
         {k: 30},
         {k: 35}
       ];
-      array_b = util.sort(array_b, 'k');
+      array_b = util.sort(array_b);
 
-      var result = util.intersect(array_a, array_b, 'k', 'k');
+      var result = util.intersect(array_a, array_b);
 
       var expected = 10 * 10 + 30 * 30;
 
@@ -148,7 +196,7 @@ describe('util', function () {
         {k: '30', v: 4}, //
         {k: '90', v: 2}
       ];
-      array_a = util.sort(array_a, 'k');
+      array_a = util.sort(array_a);
 
       var array_b = [
         {k: '10', v: -4}, //
@@ -158,9 +206,9 @@ describe('util', function () {
         {k: '30', v: -4}, //
         {k: '35', v: 2}
       ];
-      array_b = util.sort(array_b, 'k');
+      array_b = util.sort(array_b);
 
-      var result = util.intersect(array_a, array_b, 'k', 'v');
+      var result = util.intersect(array_a, array_b);
 
       var expected = 4 * (-4) + 4 * (-4);
 
@@ -173,7 +221,7 @@ describe('util', function () {
       var norm_x = 4 * (-4) + 4 * (-4);
       expected = norm_x / norm_a / norm_b;
 
-      var value = util.cosine(array_a, array_b, 'k', 'v');
+      var value = util.cosine(array_a, array_b);
       value.should.eql(expected);
     });
 
