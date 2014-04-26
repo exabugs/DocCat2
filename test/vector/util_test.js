@@ -14,53 +14,7 @@ describe('util', function () {
 
   describe('ライブラリ', function () {
 
-    it('extend', function () {
-
-      var util = new Util();
-      var object;
-      var result;
-
-      var master = {
-        test_function_a: function(a) {
-          return a + 1;
-        },
-        test_function_b: function(a) {
-          return a + 2;
-        }
-      }
-      // case 1 : 別オブジェクトに、指定した属性をコピーする場合
-      object = {};
-      util.extend(object, master, ['test_function_b']);
-      result = typeof object.test_function_a;
-      result.should.eql('undefined');
-      result = object.test_function_b(100);
-      result.should.eql(102);
-
-      // case 2 : 別オブジェクトに、全ての属性をコピーする場合
-      object = {};
-      util.extend(object, master);
-      result = object.test_function_a(100);
-      result.should.eql(101);
-      result = object.test_function_b(100);
-      result.should.eql(102);
-
-      // case 3 : 自分自身に、指定した属性をコピーする場合
-      util.extend(master, ['test_function_b']);
-      result = typeof util.test_function_a;
-      result.should.eql('undefined');
-      result = util.test_function_b(100);
-      result.should.eql(102);
-
-      // case 4 : 自分自身に、全ての属性をコピーする場合
-      util.extend(master);
-      result = util.test_function_a(100);
-      result.should.eql(101);
-      result = util.test_function_b(100);
-      result.should.eql(102);
-
-    });
-
-      /**
+    /**
      * ノルム
      * @param array
      * @param attr
@@ -216,7 +170,7 @@ describe('util', function () {
       result.should.eql(expected);
 
 
-      var norm_a = Math.sqrt((4 * 4) * 2+ (2 * 2) * 3);
+      var norm_a = Math.sqrt((4 * 4) * 2 + (2 * 2) * 3);
       var norm_b = Math.sqrt((-4 * -4) * 2 + (2 * 2) * 4);
       var norm_x = 4 * (-4) + 4 * (-4);
       expected = norm_x / norm_a / norm_b;

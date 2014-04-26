@@ -10,6 +10,39 @@ var _ = require('underscore')
 
 describe('extend', function () {
 
+  describe('継承', function () {
+
+    it('extend', function () {
+
+      var object;
+      var result;
+
+      var master = {
+        test_function_a: function (a) {
+          return a + 1;
+        },
+        test_function_b: function (a) {
+          return a + 2;
+        }
+      }
+      // case 1 : 別オブジェクトに、指定した属性をコピーする場合
+      object = {};
+      extend.extend(object, master, ['test_function_b']);
+      result = typeof object.test_function_a;
+      result.should.eql('undefined');
+      result = object.test_function_b(100);
+      result.should.eql(102);
+
+      // case 2 : 別オブジェクトに、全ての属性をコピーする場合
+      object = {};
+      extend.extend(object, master);
+      result = object.test_function_a(100);
+      result.should.eql(101);
+      result = object.test_function_b(100);
+      result.should.eql(102);
+    });
+  });
+
   describe('オブジェクト操作', function () {
 
     it('getValue', function () {
