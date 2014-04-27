@@ -8,6 +8,7 @@ var _ = require('underscore')
   , text = require('../../lib/text')
   , mongo = require('../../lib/db')
   , async = require('async')
+  , frequency = require('../../lib/text/frequency')
   ;
 
 describe('text.index', function () {
@@ -31,7 +32,7 @@ describe('text.index', function () {
         },
         function (db, next) {
           var collection = db.collection('mails.files');
-          text.object_frequency(collection, 'mails.df', function (err, result) {
+          frequency.object_frequency(collection, 'mails.df', function (err, result) {
             next(err, db);
           })
         },
