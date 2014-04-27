@@ -1,0 +1,6 @@
+	toyota	mazda	nissan	honda	subaru
+toyota	10				
+mazda	1	10			
+nissan	6	2	10		
+honda	3	3	4	10	
+subaru	5	3	4	3	10
