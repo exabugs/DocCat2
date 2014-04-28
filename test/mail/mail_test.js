@@ -27,7 +27,7 @@ describe('mail', function () {
   });
 
   it('メールをDBに追加する', function (done) {
-    var path = 'test/mail/test.eml';
+    var path = 'test/mail/data/test_1.eml';
     mail.add(path, function (err, mailInfo) {
       mail.get({"messageId": "1397023383.498516.1.1000481@moe.dreamarts.co.jp"}, function (err, result) {
         should.not.exist(err);
