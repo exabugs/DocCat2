@@ -223,7 +223,6 @@ describe('util', function () {
         {k: '95', v: 2}
       ];
 
-      var value = util.merge(array_a, array_b);
 
       var expected = [
         {k: '10', v: 0}, //
@@ -238,6 +237,13 @@ describe('util', function () {
         {k: '95', v: 2}
       ];
 
+      var value;
+
+      // 対称性
+      value = util.merge(array_a, array_b);
+      value.should.eql(expected);
+
+      value = util.merge(array_b, array_a);
       value.should.eql(expected);
     });
 
