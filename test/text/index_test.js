@@ -45,7 +45,7 @@ describe('text.index', function () {
         function (next) {
           var collection = db.collection('mails.files');
           var attribute = 'metadata.tf';
-          var field = {k: 'k'};
+          var field = ['k'];
           var option = {out: 'mails.df', condition: {}};
           frequency.object_frequency(collection, attribute, field, option, function (err, result) {
             next(err);

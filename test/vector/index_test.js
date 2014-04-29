@@ -73,7 +73,7 @@ describe('index', function () {
       tasks.push(function (db, next) {
         var collection = db.collection(TEST_COLLECTION);
         var attribute = 'tf';
-        var field = {k: 'key', v: 'val'};
+        var field = ['key', 'val'];
         var keyword = [
           {key: 'a', val: 1},
           {key: 'c', val: 1}

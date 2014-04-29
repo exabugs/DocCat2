@@ -10,7 +10,7 @@ var _ = require('underscore')
 
 describe('util', function () {
 
-  var util = new Util('k', 'v');
+  var util = new Util(['k', 'v']);
 
   describe('ライブラリ', function () {
 
@@ -136,7 +136,7 @@ describe('util', function () {
   describe('集合演算', function () {
 
     it('内積', function () {
-      var util = new Util('k', 'k');
+      var util = new Util(['k', 'k']);
 
       var array_a = [
         {k: 70},

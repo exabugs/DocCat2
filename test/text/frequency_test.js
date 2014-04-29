@@ -84,7 +84,7 @@ describe('text.frequency', function () {
   it('term_frequency', function (done) {
     var collection = db.collection(COLL);
     var attribute = 'tf'
-    var field = {k: 'key', v: 'val'};
+    var field = ['key', 'val'];
     var option = {
       condition: {parent: 9}
     };
@@ -103,7 +103,7 @@ describe('text.frequency', function () {
   it('object_frequency', function (done) {
     var collection = db.collection(COLL);
     var attribute = 'tf'
-    var field = {k: 'key', v: 'val'};
+    var field = ['key', 'val'];
     var option = {
       condition: {parent: 9}
     };
