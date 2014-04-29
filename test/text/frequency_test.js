@@ -18,6 +18,7 @@ describe('text.frequency', function () {
 
   var db;
   var COLL = 'test';
+  var COLL_OF = 'test.of';
 
   before(function (done) {
     // テストが始まる前の処理
@@ -118,4 +119,25 @@ describe('text.frequency', function () {
       done();
     });
   });
+
+  it('tfiof', function (done) {
+
+
+    var collection = db.collection(COLL);
+    var attribute = 'tf'
+    var field = ['key', 'val', 'tfiof'];
+    var option = {
+      condition: {parent: 9},
+      out: COLL_OF
+    };
+    frequency.object_frequency(collection, attribute, field, option, function (err, of_coll) {
+
+      frequency.tfiof(collection, attribute, field, of_coll, option, function (err, result) {
+        should.not.exist(err);
+        done();
+      });
+    });
+
+  });
+
 });
