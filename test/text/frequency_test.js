@@ -17,6 +17,7 @@ var _ = require('underscore')
 describe('text.frequency', function () {
 
   var db;
+  var COLL = 'test';
 
   before(function (done) {
     // テストが始まる前の処理
@@ -33,44 +34,87 @@ describe('text.frequency', function () {
   });
 
   it('準備', function (done) {
-    var collection = db.collection('test');
-    var data = [
-      {
-        user_id: 1,
-        tf: [
-          {key: 'a', val: '2'},
-          {key: 'b', val: '2'},
-          {key: 'c', val: '2'}
-        ]
-      },
-      {
-        user_id: 2,
-        tf: [
-          {key: 'a', val: '1'},
-          {key: 'b', val: '1'},
-          {key: 'c', val: '1'},
-          {key: 'd', val: '1'}
-        ]
-      }
-    ];
-    async.each(data, function (item, next) {
-      collection.insert(item, function (err) {
-        next(err);
-      });
-    }, function (err) {
-      done(err);
-    })
+    var collection = db.collection(COLL);
+    test.remove(db, [COLL], function () {
+      var data = [
+        {
+          user_id: 1,
+          parent: 9,
+          tf: [
+            {key: 'a', val: 1},
+            {key: 'b', val: 1},
+            {key: 'c', val: 1}
+          ]
+        },
+        {
+          user_id: 2,
+          parent: 9,
+          tf: [
+            {key: 'a', val: 1},
+            {key: 'b', val: 1}
+          ]
+        },
+        {
+          user_id: 3,
+          parent: 9,
+          tf: [
+            {key: 'a', val: 1}
+          ]
+        },
+        {
+          user_id: 3,
+          parent: 8,
+          tf: [
+            {key: 'a', val: 1},
+            {key: 'b', val: 1},
+            {key: 'c', val: 1}
+          ]
+        }
+      ];
+      async.each(data, function (item, next) {
+        collection.insert(item, function (err) {
+          next(err);
+        });
+      }, function (err) {
+        done(err);
+      })
+    });
   });
 
   it('term_frequency', function (done) {
-    var collection = db.collection('mails.files');
-    var attribute = 'metadata.tf'
-    var field = {k: 'k', v: 'c'};
+    var collection = db.collection(COLL);
+    var attribute = 'tf'
+    var field = {k: 'key', v: 'val'};
     var option = {
-      condition: {"metadata.origin.messageId": "EBEBFB71-96DD-4FF0-9787-49B4D8A684E4@dreamarts.co.jp"}
+      condition: {parent: 9}
     };
     frequency.term_frequency(collection, attribute, field, option, function (err, result) {
       should.not.exist(err);
+      var expected = [
+        {_id: 'a', value: 3},
+        {_id: 'b', value: 2},
+        {_id: 'c', value: 1}
+      ];
+      result.should.eql(expected);
+      done();
+    });
+  });
+
+  it('object_frequency', function (done) {
+    var collection = db.collection(COLL);
+    var attribute = 'tf'
+    var field = {k: 'key', v: 'val'};
+    var option = {
+      condition: {parent: 9}
+    };
+    frequency.object_frequency(collection, attribute, field, option, function (err, result) {
+      should.not.exist(err);
+      var expected = [
+        {_id: 'a', value: 0},
+        {_id: 'b', value: 0.4054651081081644},
+        {_id: 'c', value: 1.0986122886681098}
+      ];
+      result.should.eql(expected);
       done();
     });
   });
