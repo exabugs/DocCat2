@@ -204,51 +204,7 @@ describe('util', function () {
       value.should.eql(expected);
     });
 
-    it('併合', function () {
-      var array_a = [
-        {k: '10', v: 4}, //
-        {k: '30', v: 4}, //
-        {k: '50', v: 2},
-        {k: '70', v: 2},
-        {k: '90', v: 2}
-      ];
-
-      var array_b = [
-        {k: '10', v: -4}, //
-        {k: '12', v: 2},
-        {k: '15', v: 2},
-        {k: '20', v: 2},
-        {k: '30', v: -4}, //
-        {k: '35', v: 2},
-        {k: '95', v: 2}
-      ];
-
-
-      var expected = [
-        {k: '10', v: 0}, //
-        {k: '12', v: 2},
-        {k: '15', v: 2},
-        {k: '20', v: 2},
-        {k: '30', v: 0}, //
-        {k: '35', v: 2},
-        {k: '50', v: 2},
-        {k: '70', v: 2},
-        {k: '90', v: 2},
-        {k: '95', v: 2}
-      ];
-
-      var value;
-
-      // 対称性
-      value = util.merge(array_a, array_b);
-      value.should.eql(expected);
-
-      value = util.merge(array_b, array_a);
-      value.should.eql(expected);
-    });
-
   });
-
 
 });
 
