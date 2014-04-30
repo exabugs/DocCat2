@@ -211,4 +211,46 @@ describe('text.frequency', function () {
 
   });
 
+  it('search', function (done) {
+
+    var collection = db.collection(COLL);
+    var collection_freq = db.collection(COLL_OF);
+    var attribute = 'meta.tf'
+    var field = ['key', 'val', 'tfiof'];
+    var option = {
+      copy: [],
+      out: 'test.search.result'
+    };
+
+    var expected = [
+      {
+        "_id": 7,
+        "value": {
+          "_score": 0.6324555320336758
+        }
+      },
+      {
+        "_id": 9,
+        "value": {
+          "_score": 0.5669467095138409
+        }
+      },
+      {
+        "_id": 8,
+        "value": {
+          "_score": 0.40824829046386296
+        }
+      }
+    ]
+
+    text.search(collection, 'x a', collection_freq, attribute, field, option, function (err, result) {
+      var sort = {};
+      sort['value._score'] = -1;
+      result.find({}, {sort: sort}).toArray(function (err, result) {
+        result.should.eql(expected);
+        done();
+      });
+    });
+  });
+
 });

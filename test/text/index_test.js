@@ -39,29 +39,4 @@ describe('text.index', function () {
     })
   });
 
-  describe('search 2', function () {
-    it('should return -1 when the value is not present', function (done) {
-      async.waterfall([
-        function (next) {
-          var collection = db.collection('mails.files');
-          var attribute = 'metadata.tf';
-          var field = ['k'];
-          var option = {out: 'mails.df', condition: {}};
-          frequency.object_frequency(collection, attribute, field, option, function (err, result) {
-            next(err);
-          })
-        },
-        function (next) {
-          var collection = db.collection('mails.files');
-          var collection_freq = db.collection('mails.df');
-          text.search(db, collection, collection_freq, {}, 'メールを削除', function (err, result) {
-            next(err);
-          })
-        }
-      ], function (err) {
-        done(err);
-      });
-    })
-  });
-
 });
