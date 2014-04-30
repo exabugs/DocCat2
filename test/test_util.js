@@ -30,3 +30,13 @@ exports.remove = function (db, colls, done) {
     done(err);
   });
 }
+
+exports.insert = function (db, collection, data, done) {
+  async.each(data, function (item, next) {
+    collection.insert(item, function (err) {
+      next(err);
+    });
+  }, function (err) {
+    done(err);
+  });
+}

@@ -17,6 +17,7 @@ var _ = require('underscore')
 describe('text.frequency', function () {
 
   var db;
+  var COLL_FILES = 'test.files'
   var COLL = 'test';
   var COLL_OF = 'test.of';
 
@@ -34,60 +35,111 @@ describe('text.frequency', function () {
     done();
   });
 
+  var DATA_COLL_FILES = [
+    {
+      _id: 1,
+      parents: [9],
+      tf: [
+        {key: 'a', val: 1},
+        {key: 'b', val: 1},
+        {key: 'c', val: 1}
+      ]
+    },
+    {
+      _id: 2,
+      parents: [9],
+      tf: [
+        {key: 'a', val: 1},
+        {key: 'b', val: 1}
+      ]
+    },
+    {
+      _id: 3,
+      parents: [9],
+      tf: [
+        {key: 'a', val: 1}
+      ]
+    },
+    {
+      _id: 4,
+      parents: [8],
+      tf: [
+        {key: 'x', val: 1},
+        {key: 'y', val: 1},
+        {key: 'z', val: 1}
+      ]
+    },
+    {
+      _id: 5,
+      parents: [8],
+      tf: [
+        {key: 'x', val: 1},
+        {key: 'y', val: 1},
+        {key: 'z', val: 1}
+      ]
+    },
+    {
+      _id: 6,
+      parents: [8],
+      tf: [
+        {key: 'x', val: 1},
+        {key: 'y', val: 1},
+        {key: 'z', val: 1}
+      ]
+    },
+    {
+      _id: 7,
+      parents: [7],
+      tf: [
+        {key: 'x', val: 1},
+        {key: 'y', val: 1}
+      ]
+    },
+    {
+      _id: 8,
+      parents: [7],
+      tf: [
+        {key: 'x', val: 1}
+      ]
+    }
+  ];
+
   it('準備', function (done) {
-    var collection = db.collection(COLL);
+    test.remove(db, [COLL_FILES], function () {
+      var collection = db.collection(COLL_FILES);
+      test.insert(db, collection, DATA_COLL_FILES, function (err) {
+        done();
+      });
+    });
+  });
+
+  var DATA_COLL = [
+    {
+      _id: 7
+    },
+    {
+      _id: 8
+    },
+    {
+      _id: 9
+    }
+  ];
+
+  it('準備', function (done) {
     test.remove(db, [COLL], function () {
-      var data = [
-        {
-          user_id: 1,
-          parent: 9,
-          tf: [
-            {key: 'a', val: 1},
-            {key: 'b', val: 1},
-            {key: 'c', val: 1}
-          ]
-        },
-        {
-          user_id: 2,
-          parent: 9,
-          tf: [
-            {key: 'a', val: 1},
-            {key: 'b', val: 1}
-          ]
-        },
-        {
-          user_id: 3,
-          parent: 9,
-          tf: [
-            {key: 'a', val: 1}
-          ]
-        },
-        {
-          user_id: 3,
-          parent: 8,
-          tf: [
-            {key: 'a', val: 1},
-            {key: 'b', val: 1},
-            {key: 'c', val: 1}
-          ]
-        }
-      ];
-      async.each(data, function (item, next) {
-        collection.insert(item, function (err) {
-          next(err);
-        });
-      }, function (err) {
-        done(err);
-      })
+      var collection = db.collection(COLL);
+      test.insert(db, collection, DATA_COLL, function (err) {
+        done();
+      });
     });
   });
 
   it('term_frequency', function (done) {
-    var collection = db.collection(COLL);
+    var collection = db.collection(COLL_FILES);
     var attribute = 'tf'
     var field = ['key', 'val'];
     var option = {
-      condition: {parent: 9}
+      condition: {parents: 9}
     };
     frequency.term_frequency(collection, attribute, field, option, function (err, result) {
       should.not.exist(err);
@@ -102,11 +154,11 @@ describe('text.frequency', function () {
   });
 
   it('object_frequency', function (done) {
-    var collection = db.collection(COLL);
+    var collection = db.collection(COLL_FILES);
     var attribute = 'tf'
     var field = ['key', 'val'];
     var option = {
-      condition: {parent: 9}
+      condition: {parents: 9}
     };
     frequency.object_frequency(collection, attribute, field, option, function (err, result) {
       should.not.exist(err);
@@ -120,14 +172,33 @@ describe('text.frequency', function () {
     });
   });
 
+  it('coutup', function (done) {
+
+
+    var master_collection = db.collection(COLL);
+    var master_option = {
+      attribute: 'meta.tf'
+    };
+    var match = 'parents'
+    var collection = db.collection(COLL_FILES);
+    var attribute = 'tf'
+    var field = ['key', 'val'];
+    var option = {};
+    frequency.countup(master_collection, master_option, match, collection, attribute, field, option, function (err) {
+
+      should.not.exist(err);
+      done();
+    });
+
+  });
+
   it('tfiof', function (done) {
 
 
     var collection = db.collection(COLL);
-    var attribute = 'tf'
+    var attribute = 'meta.tf'
     var field = ['key', 'val', 'tfiof'];
     var option = {
-      condition: {parent: 9},
       out: COLL_OF
     };
     frequency.object_frequency(collection, attribute, field, option, function (err, of_coll) {
