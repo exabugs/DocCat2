@@ -7,7 +7,6 @@ var should = require('should')
   , fs = require('fs')
   , async = require('async')
   , mail = require('../../lib/mail')
-  , frequency = require('../../lib/text/frequency')
   , mongo = require('../../lib/db')
   , test = require('../test_util')
   ;

@@ -7,6 +7,8 @@
   },
   "dependencies": {
     "express": "3.4.8",
-    "jade": "*"
+    "jade": "*",
+    "mongodb": "^1.4.2",
+    "node-searcher": "0.0.2"
   }
 }
