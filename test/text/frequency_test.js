@@ -194,7 +194,6 @@ describe('text.frequency', function () {
 
   it('tfiof', function (done) {
 
-
     var collection = db.collection(COLL);
     var attribute = 'meta.tf'
     var field = ['key', 'val', 'tfiof'];
