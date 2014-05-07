@@ -51,11 +51,11 @@ describe('mail', function () {
 
   // 上記の「追加」がテストOKなので、ここではライブラリ的に使います。
   function add(array, callback) {
-    async.each(array, function(item, next) {
+    async.each(array, function (item, next) {
       mail.add(item, function (err) {
         next(err);
       });
-    }, function(err) {
+    }, function (err) {
       callback(err);
     });
   }
@@ -65,7 +65,7 @@ describe('mail', function () {
       var data = [
         'test/mail/data/test_1.eml', // '1397023383.498516.1.1000481@moe.dreamarts.co.jp'
         'test/mail/data/test_2.eml'  // 'EBEBFB71-96DD-4FF0-9787-49B4D8A684E4@dreamarts.co.jp'
-        ];
+      ];
       add(data, function (err) {
         mail.get({'messageId': '1397023383.498516.1.1000481@moe.dreamarts.co.jp'}, function (err, result) {
           should.not.exist(err);
@@ -97,13 +97,31 @@ describe('mail', function () {
 
     var searcher = new Searcher(mongo.url(), FIELD, FREQ);
 
-    searcher.countup(target, source, function(err) {
-      searcher.object_frequency(target, function(err) {
-        searcher.tfiof(target, function (err) {
-          done();
-        });
-      });
-    })
+    searcher.indexing(target, source, function (err) {
+      done();
+    });
+
+  });
+
+  it('検索実行', function (done) {
+
+    var collection = db.collection('mails');
+
+    var option = {
+      copy: ['subject'],
+      out: 'mails.search.result'
+    };
+
+    var condition = {
+      'tf': '先日フジテレビでラーメン'
+    };
+
+    var searcher = new Searcher(mongo.url(), FIELD, FREQ);
+
+    searcher.search(collection, condition, option, function (err) {
+      done();
+    });
+
   });
 
 });
