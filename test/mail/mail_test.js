@@ -9,6 +9,7 @@ var should = require('should')
   , mail = require('../../lib/mail')
   , mongo = require('../../lib/db')
   , test = require('../test_util')
+  , Searcher = require('node-searcher')
   ;
 
 var COLLS = ['mails', 'mails.files', 'mails.chunks', 'mails.df'];
@@ -69,6 +70,34 @@ describe('mail', function () {
         });
       });
     });
+  });
+
+  it('Index作成', function (done) {
+
+    var target = {
+      collection: 'mails',
+      attribute: 'tf',
+      option: {
+        condition: {}
+      }
+    };
+
+    var source = {
+      collection: 'mails.files',
+      attribute: 'metadata.tf',
+      key: 'metadata.parent',
+      option: {
+        condition: {}
+      }
+    };
+
+    var field = ['k', 'c'];
+
+    var searcher = new Searcher(mongo.url(), field);
+
+    searcher.countup(target, source, function(err) {
+      done();
+    })
   });
 
 });
