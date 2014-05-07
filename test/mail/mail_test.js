@@ -14,6 +14,10 @@ var should = require('should')
 
 var COLLS = ['mails', 'mails.files', 'mails.chunks', 'mails.df'];
 
+var FIELD = ['k', 'c'];
+
+var FREQ = {'tf': 'mails.of'};
+
 describe('mail', function () {
 
   var db;
@@ -91,12 +95,12 @@ describe('mail', function () {
       }
     };
 
-    var field = ['k', 'c'];
-
-    var searcher = new Searcher(mongo.url(), field);
+    var searcher = new Searcher(mongo.url(), FIELD, FREQ);
 
     searcher.countup(target, source, function(err) {
-      done();
+      searcher.object_frequency(target, function(err) {
+        done();
+      });
     })
   });
 
