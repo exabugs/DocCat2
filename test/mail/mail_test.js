@@ -14,7 +14,7 @@ var should = require('should')
 
 var COLLS = ['mails', 'mails.files', 'mails.chunks', 'mails.df'];
 
-var FIELD = ['k', 'c'];
+var FIELD = ['k', 'c', 'w'];
 
 var FREQ = {'tf': 'mails.of'};
 
@@ -99,7 +99,9 @@ describe('mail', function () {
 
     searcher.countup(target, source, function(err) {
       searcher.object_frequency(target, function(err) {
-        done();
+        searcher.tfiof(target, function (err) {
+          done();
+        });
       });
     })
   });
