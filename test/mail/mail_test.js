@@ -116,9 +116,20 @@ describe('mail', function () {
       'tf': '先日フジテレビでラーメン'
     };
 
+    var target = {
+      collection: 'mails',
+      option: {
+        condition: {
+          'tf': '先日フジテレビでラーメン'
+        },
+        copy: ['subject'],
+        out: 'mails.search.result'
+      }
+    };
+
     var searcher = new Searcher(mongo.url(), FIELD, FREQ);
 
-    searcher.search(collection, condition, option, function (err) {
+    searcher.search(target, function (err) {
       done();
     });
 
