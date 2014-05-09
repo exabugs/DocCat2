@@ -105,17 +105,6 @@ describe('mail', function () {
 
   it('検索実行', function (done) {
 
-    var collection = db.collection('mails');
-
-    var option = {
-      copy: ['subject'],
-      out: 'mails.search.result'
-    };
-
-    var condition = {
-      'tf': '先日フジテレビでラーメン'
-    };
-
     var target = {
       collection: 'mails',
       option: {
