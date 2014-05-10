@@ -64,7 +64,8 @@ describe('mail', function () {
     test.remove(db, COLLS, function (err) {
       var data = [
         'test/mail/data/test_1.eml', // '1397023383.498516.1.1000481@moe.dreamarts.co.jp'
-        'test/mail/data/test_2.eml'  // 'EBEBFB71-96DD-4FF0-9787-49B4D8A684E4@dreamarts.co.jp'
+        'test/mail/data/test_2.eml', // 'EBEBFB71-96DD-4FF0-9787-49B4D8A684E4@dreamarts.co.jp'
+        'test/mail/data/test_3.eml'  // 'EBEBFB71-96DD-4FF0-9787-49B4D8A684E4@dreamarts.co.jp'
       ];
       add(data, function (err) {
         mail.get({'messageId': '1397023383.498516.1.1000481@moe.dreamarts.co.jp'}, function (err, result) {
@@ -102,6 +103,25 @@ describe('mail', function () {
     });
 
   });
+
+  it('相互類似度', function (done) {
+
+    var target = {
+      collection: 'mails',
+      attribute: 'tf',
+      option: {
+        out: 'mails.mutual'
+      }
+    };
+
+    var searcher = new Searcher(mongo.url(), FIELD, FREQ);
+
+    searcher.mutualize(target, function (err) {
+      done();
+    });
+
+  });
+
 
   it('検索実行', function (done) {
 
