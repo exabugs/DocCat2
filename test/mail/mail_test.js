@@ -40,7 +40,7 @@ describe('mail', function () {
     test.remove(db, COLLS, function (err) {
       var path = 'test/mail/data/test_1.eml';
       mail.add(path, function (err, mailInfo) {
-        mail.get({'messageId': '1397023383.498516.1.1000481@moe.dreamarts.co.jp'}, function (err, result) {
+        mail.get({'messageId': 'C_M_M_I_D.21_1_22723_0_0.1368720.1398293111@cmt5t.nikkei.co.jp'}, function (err, result) {
           should.not.exist(err);
           result.length.should.eql(1);
           done();
@@ -63,12 +63,23 @@ describe('mail', function () {
   it('追加 2', function (done) {
     test.remove(db, COLLS, function (err) {
       var data = [
-        'test/mail/data/test_1.eml', // '1397023383.498516.1.1000481@moe.dreamarts.co.jp'
-        'test/mail/data/test_2.eml', // 'EBEBFB71-96DD-4FF0-9787-49B4D8A684E4@dreamarts.co.jp'
-        'test/mail/data/test_3.eml'  // 'EBEBFB71-96DD-4FF0-9787-49B4D8A684E4@dreamarts.co.jp'
+        'test/mail/data/test_1.eml', // 'C_M_M_I_D.21_1_22723_0_0.1368720.1398293111@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_2.eml', // 'C_M_M_I_D.21_1_22661_0_32605.1366866.1398050562@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_3.eml',  // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_4.eml',  // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_5.eml',  // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_6.eml',  // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_7.eml',  // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_8.eml',  // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_9.eml',  // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_a.eml',  // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_b.eml',  // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_c.eml',  // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_d.eml',  // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_e.eml'   // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
       ];
       add(data, function (err) {
-        mail.get({'messageId': '1397023383.498516.1.1000481@moe.dreamarts.co.jp'}, function (err, result) {
+        mail.get({'messageId': 'C_M_M_I_D.21_1_22723_0_0.1368720.1398293111@cmt5t.nikkei.co.jp'}, function (err, result) {
           should.not.exist(err);
           result.length.should.eql(1);
           done();

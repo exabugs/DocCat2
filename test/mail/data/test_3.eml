@@ -1,143 +1,158 @@
-Return-Path: <sakaki@dreamarts.co.jp>
-X-MXL-Hash: 536996df70e87b0e-e01f7e31c5b281dbcc8d883ec8195d23db46fe1f
-Received: by relay.securemx.jp (mx-mr-iimail1505) id s472Dpgg003235; Wed, 7 May 2014 11:13:51 +0900
-Received: from moe.dreamarts.co.jp (unknown [111.171.220.172])
-	by mx-mp-mbox1500.hop.2iij.net (Postfix) with ESMTP id 294061A0069
-	for <sakurai@dreamarts.co.jp>; Wed,  7 May 2014 11:13:50 +0900 (JST)
-Received: (qmail 22567 invoked from network); 7 May 2014 02:13:50 -0000
-Received: from unknown (HELO moe.dreamarts.co.jp) (10.100.1.3)
-  by 0 with SMTP; 7 May 2014 02:13:50 -0000
-Received: (qmail 22553 invoked from network); 7 May 2014 02:13:48 -0000
-Received: from unknown (HELO mdi.securemx.jp) (210.130.202.103)
-  by 0 with SMTP; 7 May 2014 02:13:48 -0000
-Received: by mdi.securemx.jp (mx-mdi1502) id s472Dm1D008948; Wed, 7 May 2014 11:13:48 +0900
-Authentication-Results: mx.securemx.jp; spf=pass smtp.mailfrom=sakaki@dreamarts.co.jp; dkim=none;
-	 dkim-adsp=none header.From=sakaki@dreamarts.co.jp
-Received: from mo-sw.securemx.jp (mo-sw1502-1.securemx.jp [210.130.202.154])
-	by mx.securemx.jp (mx-mi1502) id s472DlDU028649;
-	Wed, 7 May 2014 11:13:47 +0900
-Received: by mo-sw.securemx.jp (mx-mo-sw1502) id s472DlAc019597; Wed, 7 May 2014 11:13:47 +0900
-X-MXL-Hash: 536996db0ae8bcd8-196beadb66c69f33e9186582aac9be4bed8b3945
-Received: by relay.securemx.jp (mx-mr-iimail1506) id s472DkF4027790; Wed, 7 May 2014 11:13:46 +0900
-Received: from [10.1.9.180] (unknown [124.35.0.162])
-	(using TLSv1 with cipher AES128-SHA (128/128 bits))
-	(No client certificate requested)
-	(Authenticated sender: sakaki@dreamarts.co.jp) id D3B131A0059; Wed,  7 May 2014 11:13:46 +0900 (JST)
-Date: Wed, 07 May 2014 11:13:46 +0900
-From: =?ISO-2022-JP?B?GyRCOmchIUh+RmAbKEI=?= <sakaki@dreamarts.co.jp>
-To: allstaff@moe.dreamarts.co.jp
-Subject: =?ISO-2022-JP?B?W0RBLUFMTF0gGyRCIiNEK05pISEbKEIyMDE0MDUwNw==?=
-Message-Id: <20140507111344.94E4.91DAE08D@dreamarts.co.jp>
+Delivered-To: exabugs@gmail.com
+Received: by 10.52.3.101 with SMTP id b5csp261112vdb;
+        Wed, 16 Apr 2014 02:24:03 -0700 (PDT)
+X-Received: by 10.43.141.81 with SMTP id jd17mr2782547icc.39.1397640241870;
+        Wed, 16 Apr 2014 02:24:01 -0700 (PDT)
+Return-Path: <21-22551-32507-0-1-1364559-1-gmail_com@mxt.nikkei.com>
+Received: from cmt5t.nikkei.co.jp (nkml1smsd154.nikkei.co.jp. [138.101.22.164])
+        by mx.google.com with SMTP id f7si18997213igi.15.2014.04.16.02.24.01
+        for <exabugs@gmail.com>;
+        Wed, 16 Apr 2014 02:24:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 21-22551-32507-0-1-1364559-1-gmail_com@mxt.nikkei.com designates 138.101.22.164 as permitted sender) client-ip=138.101.22.164;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of 21-22551-32507-0-1-1364559-1-gmail_com@mxt.nikkei.com designates 138.101.22.164 as permitted sender) smtp.mail=21-22551-32507-0-1-1364559-1-gmail_com@mxt.nikkei.com
+Message-ID: <C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp>
+Return-Path: <21-22551-32507-0-1-1364559-1-gmail_com@mxt.nikkei.com>
+From: =?ISO-2022-JP?B?GyRCRnw3UCVLJWUhPCU5JWEhPCVrGyhC?= <nikkei-news@mx.nikkei.com>
+To: <exabugs@gmail.com>
+Subject: =?ISO-2022-JP?B?GyRCIVYjUyNUI0EjUDg9Pl0kTzlnTX1ALTliJCQyPkBiIVchIU19GyhC?=
+	=?ISO-2022-JP?B?GyRCOCYhJjp7MGY7YSQsMnE4KxsoQg==?=
+Date: Wed, 16 Apr 2014 18:23:54 +0900
 MIME-Version: 1.0
-Content-Type: text/plain; charset="ISO-2022-JP"
+Reply-To: <nikkei-news@mx.nikkei.com>
+Errors-To: <nikkei-news@mx.nikkei.com>
+Content-Type: text/plain;
+	charset="ISO-2022-JP"
 Content-Transfer-Encoding: 7bit
-X-Mailer: Becky! ver. 2.58 [ja]
-X-Spam: [F=0.5000000000; STSI=0.500(-8); STSM=0.500(-8); CM=0.500; MH=0.500(2014050625); spf=0.500; SC=none]
-X-AnalysisOut: [v=2.0 cv=M8T63VMs c=1 sm=1 a=Ux5p7_wOGY4A:10 a=jPJDawAOAc8]
-X-AnalysisOut: [A:10 a=BLceEmwcHowA:10 a=ZPSk82zQDygA:10 a=o3B3IWff3voWJKw]
-X-AnalysisOut: [kIJAA:9 a=UAVRJdkkkM0A:10]
+X-Mailer: ClickM@iler
 
-各位
+日経ニュースメール　4/16  夕版
+　http://www.nikkei.com/
 
-おつかれさまです。
-本日の朝礼内容を配信します。
-------------------------------------------------------------------------
-1)　3分間スピーチ　　　　　ICO企画推進部　佐藤誠一さん
+※有料会員限定の記事は毎月10本までご覧になれます。
 
-久々のスピーチなので、何を話そうかと休み中に考えました。
-前回（といっても、かなり前）話した内容を思い返していて、
-今また、自戒の念も含めて、その話をしたいと思います。
+━　ニュース１８時　━━━━━━
+仕事帰りのまとめ読み！「ニュース１８時」
+日経厳選のニュースで１日を振り返るサービスです。
+ http://mxt.nikkei.com/?4_22551_1364559_1
 
-それは、大学時代に先輩が、自分に対して言ってくれたことに
-ついてです。
-体育会ほどではありませんが、学生時代にバスケットをやっていて、
-チームで練習をして、終わった後には、皆でよく食事にいっていました。
-食事に行くと、先輩はよくごちそうしてくれたのです。
-行くたびに、「オレ、出すから」と言ってくれて。
-ただ自分たちも、先輩にいつも出してもらっているのも申し訳ないと
-思い、ある日、「今日は、自分が払います」と言いました。
-すると先輩は、「自分も、よく（自分の）先輩から、ごちそうして
-もらっていた。そう思ってくれるならば、お前達の後輩に、同じように
-してやって」と言ってくれたのでした。
+━　主要ニュース　━━━━━━━
+◆「ＳＴＡＰ現象は合理性高い仮説」　理研・笹井氏が会見
 
-前回、この話をしたときは社会人3年目位で、先輩が自分にしてくれた
-ことを、後輩にしてやれているのかな、と思っていました。
-今はもう9年目となり、ベテランの域に入ってきました。
-これまでも、いろいろなことをしてもらって、ここまできましたが、
-今回は、そういったいいサイクルを、後輩たちに示すことが
-出来ているかと考えた時、やってもらった以上のことが出来ているのか、
-と思ったわけです。
-大学時代は、そのチーム内でのサイクルでしたが、ドリーム・アーツとして、
-会社のいい伝統として、こういったことを、次の世代にまわして
-いけたらと思いました。
+　新しい万能細胞とされる「ＳＴＡＰ（スタップ）細胞」の論文が不正と認定された
+問題で、理化学研究所発生・再生科学総合研究センターの笹井芳樹副センター長が16
+日午後、東京都内で記者会見した。論文の筆頭著者である小保方晴子研究ユニットリ
+ーダーの上司にあたり、「ＳＴＡＰ現象は合理性の高い仮説だ」と話した。また「自
+分は論文の文章全体を俯瞰（ふかん）する立場だった。その責任は重大だ」として謝
+罪した。
+ http://mxt.nikkei.com/?4_22551_1364559_2
 
-------------------------------------------------------------------------
-2)　連絡事項
+◆大手企業賃上げ、15年ぶり２％超　春季労使交渉
+ http://mxt.nikkei.com/?4_22551_1364559_3
+◆個人投資家につかの間の春　ソフトバンク株急回復（有料会員限定）
+ http://mxt.nikkei.com/?4_22551_1364559_4
+◆電動２輪ＶＢの挑戦、ｉＰｈｏｎｅ連動で新興国攻め（有料会員限定）
+ http://mxt.nikkei.com/?4_22551_1364559_5
+◆米国で再び噴出「物言う株主」の是非論（有料会員限定）
+ http://mxt.nikkei.com/?4_22551_1364559_6
+◆「端午の節句」、主役は女性だった？
+ http://mxt.nikkei.com/?4_22551_1364559_7
+◆中国の金需要「14年は調整」に市場は反応（有料会員限定）
+ http://mxt.nikkei.com/?4_22551_1364559_8
+◆中国7.4％成長に鈍化　１〜３月、市場予想は上回る
+ http://mxt.nikkei.com/?4_22551_1364559_9
+◆飛びやすい統一球、検査法を公開　日本野球機構
+ http://mxt.nikkei.com/?4_22551_1364559_10
+◆面接官が語る「こんな学生はお断り」(就活探偵)（有料会員限定）
+ http://mxt.nikkei.com/?4_22551_1364559_11
+◆プーチン大統領「ウクライナは内戦の寸前」
+ http://mxt.nikkei.com/?4_22551_1364559_12
+◆スマホで子守、長時間はダメ　成長に悪影響の恐れ（有料会員限定）
+ http://mxt.nikkei.com/?4_22551_1364559_13
+◆伊藤忠元社員が７億円着服　ＦＸ取引に流用
+ http://mxt.nikkei.com/?4_22551_1364559_14
+◆ガソリン価格、前週と同じ１リットル164.2円
+ http://mxt.nikkei.com/?4_22551_1364559_15
+◆韓国で475人乗り旅客船沈没、２人が死亡
+ http://mxt.nikkei.com/?4_22551_1364559_16
 
-・マーケティング部より
-　　・先週のニュースジャパン映像ですが、
-　　　動画ポータルにアップされていますので、ご覧ください。
+━　ジャンル別速報ニュース　━━
+【経済】
+◆麻生財務相、公的年金「６月以降動く」
+ http://mxt.nikkei.com/?4_22551_1364559_17
+◆外国人、５年ぶり増の159万人　景気回復などで
+ http://mxt.nikkei.com/?4_22551_1364559_18
+◆住宅購入資金の贈与税、非課税枠を延長　政府検討（有料会員限定）
+ http://mxt.nikkei.com/?4_22551_1364559_19
 
-　　・DEC　　現時点で参加申し込み19名
-　　　　　参加申し込み受け付けは、Web、FAXとなっています。
-　　　　　集客よろしくお願いいたします。
-　　　　　参加者リストは、連絡掲示板に公開中です。
+【企業】
+◆製造向け派遣、アジアで拡大　日系工場に現地人材（有料会員限定）
+ http://mxt.nikkei.com/?4_22551_1364559_20
+◆スズキが小型車向け簡易版ハイブリッド技術
+ http://mxt.nikkei.com/?4_22551_1364559_21
+◆日産、初のブラジル工場稼働　小型車「マーチ」生産
+ http://mxt.nikkei.com/?4_22551_1364559_22
 
-・5/1入社　倉岡昭一さん
-　　「今年で28歳となりますが、最近まで学生をしていました。
-　　　ほとんど新卒です。iphonアプリを作っていた関係で、
-　　　ICO企画推進本部に配属となりました。
-　　　早く戦力になりたいと思いますので、どうぞよろしく
-　　　お願いいたします」
+【国際】
+◆米復活祭商戦、異例の寒波で盛り上がらず　平均支出額５％減
+ http://mxt.nikkei.com/?4_22551_1364559_23
+◆ＴＰＰ日米協議が再開　17日から閣僚交渉
+ http://mxt.nikkei.com/?4_22551_1364559_24
+◆欧州金融機関、クリミアから撤退　ＥＵと足並み
+ http://mxt.nikkei.com/?4_22551_1364559_25
 
-------------------------------------------------------------------------
-3)　月初　山本さんより
+【政治】
+◆「黒田効果」首相が演出　２人で会談50分、市場反応にらむ（有料会員限定）
+ http://mxt.nikkei.com/?4_22551_1364559_26
+◆鹿児島２区補選告示、安保・政治とカネ争点（有料会員限定）
+ http://mxt.nikkei.com/?4_22551_1364559_27
+◆法人税下げ、自民税調がけん制　時期や幅で政府と溝
+ http://mxt.nikkei.com/?4_22551_1364559_28
 
-今日の最終便で、沖縄へ出張します。
-そして明日、石垣市長と面談します。DAOで石垣にあった拠点を、
-6月よりDIOL（DreamArts Ishigaki Operation Laboratry）という
-名称のクラウド時代にあったラボとして、再スタートさせること、
-そのリリースについての話をするためです。
+【マーケット】
+◆外為17時 円、続落し一時１週間ぶり安値　対ユーロは反落
+ http://mxt.nikkei.com/?4_22551_1364559_29
+◆東証大引け、大幅続伸　米株高など受け全面高、今年2番目の上げ幅
+ http://mxt.nikkei.com/?4_22551_1364559_30
+◆新興株16日、ジャスダック反発　日米株高で投資家の心理改善
+ http://mxt.nikkei.com/?4_22551_1364559_31
 
-当初、石垣の役所の方に、24365の話をしたところ、
-「石垣では、夜働く人はいないですよ」と言われましたが、ふたを
-あけたら思った以上に応募があって、何人かのスタッフも決まった
-ところです。
-あえてDreamArtsとしたのは、グループとしての拠点という意気込み、
-想いで、命名しました。
+【社会】
+◆母親がスマホを所有、２歳児の22％が「毎日触れる」（有料会員限定）
+ http://mxt.nikkei.com/?4_22551_1364559_32
+◆買い物や除雪、過疎地で支援　総務省が自治会と実験（有料会員限定）
+ http://mxt.nikkei.com/?4_22551_1364559_33
+◆韓国で470人乗り旅客船が沈没　救出作業続く
+ http://mxt.nikkei.com/?4_22551_1364559_34
 
-また、今日はこれから、現在の受付スペースをデザインしてくれた
-鄭秀和氏がいらっしゃいます。
-そうです。現在空いているとなりのオフィススペースを借り増しし、
-その際のレセプションスペースのデザインをお願いするためです。
-6月から賃貸契約を結び、2ヶ月ほどの工事期間を経て、8月頃には
-新しいオフィスをオープンさせる予定です。
-そして、来客スペースを増やす予定です。
-以前広尾３Fのレセプションフロアを、フル活用していた時期が
-あります。お客様にオフィスに来て、見て、納得していただく、という
-流れを作っていた時期です。
-今回も、知輪話やYiという新しい玉を提案するにあたり、同じように、
-オフィスに来ていただき、見てもらい、納得してもらう、というような
-動きをします。能動的に来訪していただく、というフェーズに入りたいので、
-スペース不足に対しての、先手を打っていくのです。
+【スポーツ】
+◆昇格の川崎が２安打、ブルージェイズ勝利　米大リーグ
+ http://mxt.nikkei.com/?4_22551_1364559_35
+◆マリナーズの岩隈、負傷後３度目の投球練習
+ http://mxt.nikkei.com/?4_22551_1364559_36
+◆レッドソックスの上原は18日にも復帰　肩の「痛みなくなる」
+ http://mxt.nikkei.com/?4_22551_1364559_37
 
-現在のオフィスを使いながら、工事を進めていきます。
-となりを拡張できるのは、非常にラッキーなことです。まずまずは、
-小さな先手として、うっていきます。
-
-目の前、上期の売上、利益の状況を見るに、この2ヶ月で、かなり
-がんばらないといけない状況です。
-社内相互に連携し、いい折り返しのできるよう、進めていきましょう。
-
-”言ったつもり””やってくれてるはず”といった認識漏れのないよう、
-立ち話も活用して！前に前に進んでいけるよう、張り切ってやって
-いきましょう。
-
-------------------------------------------------------------------------
-
-以上です。
-今週も、どうぞ宜しくお願いいたします。
-
-：業務管理部
+【ピックアップ情報】
+◆日経ショッピング＆トラベル
+本格派のエスプレッソを毎日家庭で〜抽出器から豆までセットでお届け
+http://mxt.nikkei.com/?4_22551_1364559_38
 
 
+━━━━━━━━━━━━━━━━
+■このメールは送信専用メールアドレスから配信されています。
+　ご返信いただいてもお答えできませんのでご了承ください。
+■本メールサービスの解除を希望する方は下記URLの「メールサービス受信設定」
+　にアクセスし配信のチェックを外してください。
+　https://regist.nikkei.com/ds/setup/mail.do
+■最新の情報はサイトでご確認ください。
+　ニュース：http://www.nikkei.com
+　訂正：http://www.nikkei.com/news/info/
+　お問い合わせ：http://www.nikkei.com/help/
+■このメールに掲載する記事には有料会員限定の記事を含みます。
+　有料会員へのご登録はこちら
+　http://www.nikkei.com/r123/
+■配信元：日本経済新聞社
+　掲載記事の無断転載を禁じます。
+　Copyright (c) 2014 Nikkei Inc. All rights reserved.
+━━━━━━━━━━━━━━━━
