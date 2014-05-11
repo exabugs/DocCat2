@@ -8,10 +8,39 @@ block content
     input(type="file", name="mail")
     input(type="submit")
 
-  form(method="post", enctype="multipart/form-data", action="/mecab")
-    input(type="file", name="file")
-    input(type="submit")
+  table#table_id
+    thead
+      tr
+        th ID
+        th Title
+    tbody
 
-  form(method="post", enctype="multipart/form-data", action="/doccat")
-    input(type="file", name="file")
-    input(type="submit")
+  script.
+    $(document).ready(function(){$('#table_id').dataTable({
+    aoColumns: [
+    { mData: "_id", sDefaultContent: "" },
+    { mData: "title", sDefaultContent: "" }
+    ],
+    bDeferRender: true,
+    sAjaxSource: "mails",
+    fnServerParams: function (aoData) {
+    aoData.push({"name": "id", "value": "1"});
+    },
+    sAjaxDataProp: "items",
+    fnServerData: function(sSource, aoData, fnCallback, oSettings) {
+      // ajaxリクエストからの戻ってくるjqXHRはoSettingsへ格納します。
+      oSettings.jqXHR = $.ajax({
+        url: sSource,
+        type: "GET",
+        data: aoData,
+        dataType: 'json'
+      })
+      .done(fnCallback);
+      }
+    });
+    });
+
+
+
+
+

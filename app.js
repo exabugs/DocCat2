@@ -36,7 +36,9 @@ app.get('/users', user.list);
 app.post('/mecab', upload.mecab);
 app.post('/doccat', upload.doccat);
 
+// Mails
 app.post('/mails', mail.http_add);
+app.get('/mails', mail.http_search);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
