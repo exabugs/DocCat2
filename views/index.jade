@@ -4,6 +4,10 @@ block content
   h1= title
   p Welcome to #{title}
 
+  form(method="post", enctype="multipart/form-data", action="/mails")
+    input(type="file", name="mail")
+    input(type="submit")
+
   form(method="post", enctype="multipart/form-data", action="/mecab")
     input(type="file", name="file")
     input(type="submit")
