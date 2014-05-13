@@ -149,7 +149,18 @@ describe('mail', function () {
 
     var searcher = new Searcher(mongo.url(), FIELD, FREQ);
 
-    searcher.search(target, function (err) {
+    var data = [];
+    for (var i = 0; i < 500; i++) {
+      data.push(i);
+    }
+    async.eachLimit(data, 3, function (item, next) {
+      searcher.search(target, function (err) {
+        if (err) {
+          console.log(err);
+        }
+        next(err);
+      });
+    }, function (err) {
       done();
     });
 
