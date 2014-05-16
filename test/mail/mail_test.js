@@ -150,7 +150,7 @@ describe('mail', function () {
     var searcher = new Searcher(mongo.url(), FIELD, FREQ);
 
     var data = [];
-    for (var i = 0; i < 500; i++) {
+    for (var i = 0; i < 1; i++) {
       data.push(i);
     }
     async.eachLimit(data, 3, function (item, next) {

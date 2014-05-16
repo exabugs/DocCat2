@@ -73,3 +73,9 @@ write(t(data.cmd), "/tmp/data.cmd", ncolumn=2)
 
 
 
+http://d.hatena.ne.jp/graySpace/20140427/1398608455
+
+
+固有値・固有ベクトルとは
+「大人になってからの再学習 固有ベクトル・固有値」
+http://d.hatena.ne.jp/Zellij/20130513/p1

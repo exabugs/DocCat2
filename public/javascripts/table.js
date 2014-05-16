@@ -2,7 +2,7 @@ $(document).ready(function(){$('#table_id').dataTable({
   aoColumns: [
     { mData: "_id", sDefaultContent: "" },
     { mData: "subject", sDefaultContent: "" },
-    { mData: "tf", sDefaultContent: "" }
+    { mData: "tf.score", sDefaultContent: "" }
   ],
   bServerSide: true,
   bDeferRender: true,
