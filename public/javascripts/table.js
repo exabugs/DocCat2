@@ -28,7 +28,22 @@ $(document).ready(function(){$('#table_id').dataTable({
       data: aoData,
       dataType: 'json'
     })
+
+      .pipe(function(json) {
+/*
+        json.reports = $.map(json.reports, function(item, index) {
+          // idが2なら省く
+          return (item.id != "2") ? item : null;
+        });
+*/
+        return json;
+      })
+      .done(function(json) {
+//        alert(JSON.stringify(json));
+        return json;
+      })
     .done(fnCallback);
+
   }
 });
 });
