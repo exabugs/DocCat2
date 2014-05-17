@@ -153,7 +153,7 @@ describe('mail', function () {
     for (var i = 0; i < 1; i++) {
       data.push(i);
     }
-    async.eachLimit(data, 3, function (item, next) {
+    async.eachLimit(data, 30, function (item, next) {
       searcher.search(target, function (err) {
         if (err) {
           console.log(err);
@@ -162,6 +162,68 @@ describe('mail', function () {
       });
     }, function (err) {
       done();
+    });
+
+  });
+
+  it('相互類似度', function (done) {
+
+    var target = {
+      collection: 'mails',
+      attribute: 'tf',
+      option: {
+        out: 'mails.mutual'
+      }
+    };
+
+    var searcher = new Searcher(mongo.url(), FIELD, FREQ);
+
+    searcher.mutualize(target, function (err) {
+      done();
+    });
+
+  });
+
+
+  it('検索実行 & 主座標分析', function (done) {
+
+    var target = {
+      collection: 'mails',
+      option: {
+        condition: {
+          'tf': 'iPhone TPP STAP NISA GPS'
+        },
+        copy: ['subject'],
+        out: 'mails.search.result'
+      }
+    };
+
+    var searcher = new Searcher(mongo.url(), FIELD, FREQ);
+
+    searcher.search(target, function (err) {
+      if (err) {
+        console.log(err);
+      } else {
+
+        var target = {
+          collection: 'mails.search.result',
+          attribute: 'tf',
+          option: {
+            field: ['x', 'y']
+          }
+        };
+
+        var source = {
+          collection: 'mails.mutual',
+          option: {
+          }
+        };
+
+        searcher.cmdscale(target, source, function (err) {
+          done();
+        });
+
+      }
     });
 
   });
