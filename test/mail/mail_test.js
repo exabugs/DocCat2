@@ -64,6 +64,8 @@ describe('mail', function () {
     test.remove(db, COLLS, function (err) {
       var data = [
         'test/mail/data/test_1.eml', // 'C_M_M_I_D.21_1_22723_0_0.1368720.1398293111@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_1.eml', // 'C_M_M_I_D.21_1_22723_0_0.1368720.1398293111@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_1.eml', // 'C_M_M_I_D.21_1_22723_0_0.1368720.1398293111@cmt5t.nikkei.co.jp'
         'test/mail/data/test_2.eml', // 'C_M_M_I_D.21_1_22661_0_32605.1366866.1398050562@cmt5t.nikkei.co.jp'
         'test/mail/data/test_3.eml',  // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
         'test/mail/data/test_4.eml',  // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
@@ -77,11 +79,12 @@ describe('mail', function () {
         'test/mail/data/test_c.eml',  // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
         'test/mail/data/test_d.eml',  // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
         'test/mail/data/test_e.eml'   // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+
       ];
       add(data, function (err) {
         mail.get({'messageId': 'C_M_M_I_D.21_1_22723_0_0.1368720.1398293111@cmt5t.nikkei.co.jp'}, function (err, result) {
           should.not.exist(err);
-          result.length.should.eql(1);
+          result.length.should.eql(3);
           done();
         });
       });
