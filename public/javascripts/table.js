@@ -29,8 +29,8 @@ function plot(json) {
 
   var canvas = $('#canvas_id')[0];
 
-  var w = 800;
-  var h = 500;
+  var w = canvas.width;
+  var h = canvas.height;
   var s = 40; // 直径
 
   var view_w = w / (max_x - min_x);
@@ -39,6 +39,8 @@ function plot(json) {
 
   var ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, w, h);
+
+  var PI2 = Math.PI * 2;
 
   _.each(json.items, function (item) {
     var info = item.tf;
@@ -49,7 +51,7 @@ function plot(json) {
       ctx.fillText(item.subject, x, y);
 
       ctx.beginPath();
-      ctx.arc(x, y, info.score * view_s + 2, 0, Math.PI * 2, false);
+      ctx.arc(x, y, info.score * view_s + 2, 0, PI2, false);
       ctx.stroke();
     }
   });
