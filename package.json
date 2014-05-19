@@ -11,10 +11,11 @@
     "express": "3.4.8",
     "iconv": "^2.1.0",
     "jade": "*",
+    "log": "^1.4.0",
     "mailparser": "^0.4.3",
     "moment": "^2.6.0",
     "mongodb": "^1.4.3",
-    "node-searcher": "0.0.16",
+    "node-searcher": "0.0.17",
     "underscore": "^1.6.0"
   }
 }
