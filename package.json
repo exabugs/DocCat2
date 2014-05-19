@@ -15,7 +15,7 @@
     "mailparser": "^0.4.3",
     "moment": "^2.6.0",
     "mongodb": "^1.4.3",
-    "node-searcher": "0.0.17",
+    "node-searcher": "0.0.18",
     "underscore": "^1.6.0"
   }
 }
