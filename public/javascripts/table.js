@@ -60,12 +60,13 @@ function plot(json) {
 
 $(document).ready(function () {
   var myTable = $('#table_id').dataTable({
+    bAutoWidth: false,
     aoColumns: [
-      { mData: "date", sDefaultContent: "" },
-      { mData: "subject", sDefaultContent: "" },
-      { mData: "tf.score", sDefaultContent: "" },
-      { mData: "tf.x", sDefaultContent: "" },
-      { mData: "tf.y", sDefaultContent: "" }
+      { sWidth: "260px", mData: "date", sDefaultContent: "" },
+      {                  mData: "subject", sDefaultContent: "" },
+      { sWidth: "160px", mData: "tf.score", sDefaultContent: "" },
+      { sWidth: "160px", mData: "tf.x", sDefaultContent: "" },
+      { sWidth: "160px", mData: "tf.y", sDefaultContent: "" }
     ],
     bServerSide: true,
     bDeferRender: true,
