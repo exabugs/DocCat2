@@ -40,19 +40,18 @@ function plot(json) {
   var ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, w, h);
 
-  var i = 0;
   _.each(json.items, function (item) {
-    info = item.tf;
-    var x = (info.x - min_x) * view_w;
-    var y = (info.y - min_y) * view_h;
+    var info = item.tf;
+    if (info) {
+      var x = (info.x - min_x) * view_w;
+      var y = (info.y - min_y) * view_h;
 
-    ctx.fillText(item.subject, x, y);
+      ctx.fillText(item.subject, x, y);
 
-    ctx.beginPath();
-    ctx.arc(x, y, info.score * view_s + 2, 0, Math.PI * 2, false);
-    ctx.stroke();
-
-    i++;
+      ctx.beginPath();
+      ctx.arc(x, y, info.score * view_s + 2, 0, Math.PI * 2, false);
+      ctx.stroke();
+    }
   });
 
 }
