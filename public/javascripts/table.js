@@ -55,10 +55,12 @@ $(document).ready(function(){$('#table_id').dataTable({
 
         alert(min_x + " " + min_y + " " + max_x + " " + max_y);
 
-        min_x *= 1.1;
-        min_y *= 1.1;
-        max_x *= 1.1;
-        max_y *= 1.1;
+        var x_expand = 3.0;
+        var y_expand = 1.1;
+//        min_x *= x_expand;
+        max_x *= x_expand;
+        min_y *= y_expand;
+        max_y *= y_expand;
 
         alert(min_x + " " + min_y + " " + max_x + " " + max_y);
 
