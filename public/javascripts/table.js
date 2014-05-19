@@ -58,7 +58,7 @@ function plot(json) {
 }
 
 $(document).ready(function () {
-  $('#table_id').dataTable({
+  var myTable = $('#table_id').dataTable({
     aoColumns: [
       { mData: "_id", sDefaultContent: "" },
       { mData: "subject", sDefaultContent: "" },
@@ -103,4 +103,18 @@ $(document).ready(function () {
 
     }
   });
+
+  var timer_id = 0;
+
+  $('.dataTables_filter input')
+    .unbind('keypress keyup')
+    .bind('keypress keyup', function(e){
+      clearTimeout(timer_id);
+      if (e.keyCode === 13) {
+        myTable.fnFilter($(this).val());
+      } else {
+        timer_id = setTimeout("$('#table_id').dataTable().fnFilter($('.dataTables_filter input').val())", 500);
+      }
+    });
+
 });
