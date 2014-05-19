@@ -82,7 +82,21 @@ describe('mail', function () {
         'test/mail/data/test_b.eml',  // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
         'test/mail/data/test_c.eml',  // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
         'test/mail/data/test_d.eml',  // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
-        'test/mail/data/test_e.eml'   // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_e.eml',   // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_f.eml',   // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_g.eml',   // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_h.eml',   // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_i.eml',   // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_j.eml',   // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_k.eml',   // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_l.eml',   // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_m.eml',   // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_n.eml',   // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_o.eml',   // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_p.eml',   // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_q.eml',   // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_r.eml',   // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
+        'test/mail/data/test_s.eml'   // 'C_M_M_I_D.21_1_22551_0_0.1364559.1397640241@cmt5t.nikkei.co.jp'
       ];
       add(data, function (err) {
         mail.get({'messageId': 'C_M_M_I_D.21_1_22723_0_0.1368720.1398293111@cmt5t.nikkei.co.jp'}, function (err, result) {
