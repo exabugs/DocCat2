@@ -104,6 +104,8 @@ $(document).ready(function () {
     }
   });
 
+  // jQuery DataTables: Delay search until 3 characters been typed OR a button clicked
+  // http://stackoverflow.com/questions/5548893/jquery-datatables-delay-search-until-3-characters-been-typed-or-a-button-clicke
   $('.dataTables_filter input')
     .unbind('keyup')
     .bind('keyup', function (e) {
