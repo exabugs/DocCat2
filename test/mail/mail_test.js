@@ -19,6 +19,7 @@ var FIELD = ['k', 'c', 'w'];
 var FREQ = {'tf': 'mails.of'};
 
 describe('mail', function () {
+  this.timeout(15000);
 
   var db;
 
