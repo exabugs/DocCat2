@@ -61,7 +61,7 @@ function plot(json) {
 $(document).ready(function () {
   var myTable = $('#table_id').dataTable({
     aoColumns: [
-      { mData: "_id", sDefaultContent: "" },
+      { mData: "date", sDefaultContent: "" },
       { mData: "subject", sDefaultContent: "" },
       { mData: "tf.score", sDefaultContent: "" },
       { mData: "tf.x", sDefaultContent: "" },
