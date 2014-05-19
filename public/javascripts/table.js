@@ -104,12 +104,12 @@ $(document).ready(function () {
     }
   });
 
-  var timer_id = 0;
+  //var timer_id = 0;
 
   $('.dataTables_filter input')
     .unbind('keypress keyup')
     .bind('keypress keyup', function(e){
-      clearTimeout(timer_id);
+    //  clearTimeout(timer_id);
       if (e.keyCode === 13) {
         myTable.fnFilter($(this).val());
       } else {
