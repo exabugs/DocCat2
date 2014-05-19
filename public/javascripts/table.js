@@ -113,7 +113,7 @@ $(document).ready(function () {
       if (e.keyCode === 13) {
         myTable.fnFilter($(this).val());
       } else {
-        timer_id = setTimeout("$('#table_id').dataTable().fnFilter($('.dataTables_filter input').val())", 500);
+   //     timer_id = setTimeout("$('#table_id').dataTable().fnFilter($('.dataTables_filter input').val())", 500);
       }
     });
 
