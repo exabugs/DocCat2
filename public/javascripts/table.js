@@ -87,44 +87,38 @@ function svg(json) {
   min_y -= d_y;
   max_y += d_y;
 
-  //var svg = $('#svg_id');
-  var svg = document.getElementById('svg_id');
+  $('#svg_id').empty();
 
-  var w = max_x - min_x;
-  var h = max_y - min_y;
-  svg.setAttribute('viewBox', [min_x, min_y, w, h].join(' '));
+  var svg = $('#svg_id')[0];
 
-//  var text = $('<text x="20" y="20">ごきげんよう。</text>');
-//  svg.append(text);
+  var s = 0.2; // 直径
 
-
-  var s = 40; // 直径
-
-//  var view_w = w / (max_x - min_x);
-//  var view_h = h / (max_y - min_y);
+  var view_w = max_x - min_x;
+  var view_h = max_y - min_y;
   var view_s = s / (max_s - min_s);
 
-  //svg.empty();
+  svg.setAttribute('viewBox', [min_x, min_y, view_w, view_h].join(' '));
 
+  var NS = 'http://www.w3.org/2000/svg';
   _.each(json.items, function (item) {
     var info = item.tf;
-    if (info) {
+    if (info && info.score) {
       var x = info.x;
       var y = info.y;
-/*
-      ctx.fillText(item.subject, x, y);
 
-      ctx.beginPath();
-      ctx.arc(x, y, info.score * view_s + 2, 0, PI2, false);
-      ctx.stroke();
+      var text = document.createElementNS(NS, 'text');
+      text.setAttribute('x', x);
+      text.setAttribute('y', y);
+      text.setAttribute('font-size', 0.04);
+      text.setAttribute('vector-effect', 'non-scaling-stroke');
+      text.appendChild(document.createTextNode(item.subject));
 
-      <circle cx="100" cy="50" r="40" stroke="black" stroke-width="2" fill="red" />
-*/
-      //var circle = $('<circle>');
-      var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      svg.appendChild(text);
+
+      var circle = document.createElementNS(NS, 'circle');
       circle.setAttribute('cx', x);
       circle.setAttribute('cy', y);
-      circle.setAttribute('r', info.score * 10);
+      circle.setAttribute('r', info.score * view_s + 0.02);
       circle.setAttribute('stroke', 'black');
       circle.setAttribute('stroke-width', 1);
       circle.setAttribute('fill', 'none');
