@@ -63,6 +63,7 @@ describe('mail', function () {
 
   /**
    * メール追加
+   * (データベースの準備)
    */
   it('追加 2', function (done) {
     test.remove(db, COLLS, function (err) {
