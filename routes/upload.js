@@ -15,12 +15,15 @@ var _ = require('underscore')
  * @param req
  * @param res
  */
+exports.doccat_upload = function (req, res) {
+  res.render('doccat', { title: 'Doccat' });
+}
 exports.doccat = function (req, res) {
 
   // アップロードファイル
   var file = req.files.file.path;
 
-  _doccat(file, '/opt/doccat/', 1000, function (err, result) {
+  _doccat(file, '/opt/doccat/', 5000, function (err, result) {
 
     // ファイル削除
     fs.unlink(file);

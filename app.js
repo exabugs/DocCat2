@@ -34,7 +34,9 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.post('/mecab', upload.mecab);
+
 app.post('/doccat', upload.doccat);
+app.get('/doccat', upload.doccat_upload);
 
 // Mails
 app.post('/mails', mail.http_add);
